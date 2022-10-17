@@ -4,7 +4,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="theme-color" content=#66ccff>
-  <title>Hello World | 喵窝</title>
+  <title>SQL练习50题笔记 | 喵窝</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="author" content="Inari">
   <meta name="keywords" content="">
@@ -72,8 +72,8 @@
       
       <div class="page-title">
         <div class="avatar"><a href="/"><img src="/images/avatar.jpg" alt="Inari"></a></div>
-        <span>2022-10-11</span>
-        <h2>Hello World</h2>
+        <span>2022-10-17</span>
+        <h2>SQL练习50题笔记</h2>
         
         <div class="social-links">
     <a href="https://psnine.com/psnid/lchiot" target="_blank" title="social-link"><i class="fa fa-gamepad fa-fw"></i></a>
@@ -86,12 +86,10 @@
   <div class="lx-post">
     <div class="lx-entry padding">
       <div>
-        <img src="/2022/10/11/hello-world/%E9%85%8D%E5%9B%BE.jpg" class="" title="ID&#x3D;79379878">
-<span id="more"></span>
-<h2 id="突发奇想"><a href="#突发奇想" class="headerlink" title="突发奇想"></a>突发奇想</h2><p>居家办公闲来无事突然脑洞大开想整个私人页面记录一些生活中的日常。<br>打开百度搜索了建立个人页面，然后就跳出来各种教程，随便点开一个，首先看到的就是大量的代码，瞬间就有些退缩了。<br>一想到自己好歹也学过C#以及SQL（虽然全部半途而废了），硬着头皮找了个看起来没那么复杂的教程折腾了一下午，中间经历了无数次报错，最后靠着不断百度终于是解决了各种乱七八糟的问题，通过套了个Hexo框架下的Next主题，终于是把这个简易的个人站点建立了起来。<br>回顾这一下午的经历，说实话感觉整个流程并不是很复杂，走的弯路更多是因为教程年代相对早了一些与现在的环境不太匹配，才产生了问题，如果教程再更细致一些，相信没有任何编程基础也是可以快速完成网站建设的。</p>
-<h2 id="突发奇想之后？"><a href="#突发奇想之后？" class="headerlink" title="突发奇想之后？"></a>突发奇想之后？</h2><p>建立个人页面的初衷是想有个私密性质相对强一点的开放平台来记录一些感想，包括通关的游戏、看完的动画及小说，并放置自己自制游戏的文档，记录这日复一日无趣社畜生活历程。<br>既然现在网站的框架已经搭建好了，今后会尝试持续性地更新内容，增加更多文章，并长期完善这个也不能算是来之不易的站点，如果能做好的话，象征性买个域名也说不定？借着完善网站这个契机，今后也会长期持续性地学习一些代码相关的知识，扩充一下知识储备。</p>
-<h2 id="Hello-World"><a href="#Hello-World" class="headerlink" title="Hello World"></a>Hello World</h2><p>象征性打一遍Hello World，有一说一，还挺有仪式感的。<br>希望今后一切顺利。</p>
+        <img src="/2022/10/17/SQL%E7%BB%83%E4%B9%A050%E9%A2%98%E7%AC%94%E8%AE%B0/%E9%85%8D%E5%9B%BE.jpg" class="" title="From Relife~献给挚爱的你~">
+<span id="more"></span> 
 
+<h3 id="1）查询“01”课程比“02”课程成绩高的学生的信息及课程分数"><a href="#1）查询“01”课程比“02”课程成绩高的学生的信息及课程分数" class="headerlink" title="1）查询“01”课程比“02”课程成绩高的学生的信息及课程分数"></a>1）查询“01”课程比“02”课程成绩高的学生的信息及课程分数</h3><h3 id="1-1）查询同时存在“01”课程和“02”课程的情况"><a href="#1-1）查询同时存在“01”课程和“02”课程的情况" class="headerlink" title="1.1）查询同时存在“01”课程和“02”课程的情况"></a>1.1）查询同时存在“01”课程和“02”课程的情况</h3><h3 id="1-2）查询存在“01”课程但可能不存在“02”课程的情况-不存在时显示为-Null"><a href="#1-2）查询存在“01”课程但可能不存在“02”课程的情况-不存在时显示为-Null" class="headerlink" title="1.2）查询存在“01”课程但可能不存在“02”课程的情况(不存在时显示为 Null )"></a>1.2）查询存在“01”课程但可能不存在“02”课程的情况(不存在时显示为 Null )</h3><h3 id="1-3）查询不存在“01”课程但存在“02”课程的情况"><a href="#1-3）查询不存在“01”课程但存在“02”课程的情况" class="headerlink" title="1.3）查询不存在“01”课程但存在“02”课程的情况"></a>1.3）查询不存在“01”课程但存在“02”课程的情况</h3><h3 id="2）查询平均成绩大于等于-60-分的同学的学生编号和学生姓名和平均成绩"><a href="#2）查询平均成绩大于等于-60-分的同学的学生编号和学生姓名和平均成绩" class="headerlink" title="2）查询平均成绩大于等于 60 分的同学的学生编号和学生姓名和平均成绩"></a>2）查询平均成绩大于等于 60 分的同学的学生编号和学生姓名和平均成绩</h3><h3 id="3）查询在-SC-表存在成绩的学生信息"><a href="#3）查询在-SC-表存在成绩的学生信息" class="headerlink" title="3）查询在 SC 表存在成绩的学生信息"></a>3）查询在 SC 表存在成绩的学生信息</h3><h3 id="4）查询所有同学的学生编号、学生姓名、选课总数、所有课程的总成绩-没成绩的显示为-Null"><a href="#4）查询所有同学的学生编号、学生姓名、选课总数、所有课程的总成绩-没成绩的显示为-Null" class="headerlink" title="4）查询所有同学的学生编号、学生姓名、选课总数、所有课程的总成绩(没成绩的显示为 Null )"></a>4）查询所有同学的学生编号、学生姓名、选课总数、所有课程的总成绩(没成绩的显示为 Null )</h3><h3 id="4-1）查有成绩的学生信息"><a href="#4-1）查有成绩的学生信息" class="headerlink" title="4.1）查有成绩的学生信息"></a>4.1）查有成绩的学生信息</h3><h3 id="5）查询「李」姓老师的数量"><a href="#5）查询「李」姓老师的数量" class="headerlink" title="5）查询「李」姓老师的数量"></a>5）查询「李」姓老师的数量</h3><h3 id="6）查询学过「张三」老师授课的同学的信息"><a href="#6）查询学过「张三」老师授课的同学的信息" class="headerlink" title="6）查询学过「张三」老师授课的同学的信息"></a>6）查询学过「张三」老师授课的同学的信息</h3><h3 id="7）查询没有学全所有课程的同学的信息"><a href="#7）查询没有学全所有课程的同学的信息" class="headerlink" title="7）查询没有学全所有课程的同学的信息"></a>7）查询没有学全所有课程的同学的信息</h3><h3 id="8）查询至少有一门课与学号为“01”的同学所学相同的同学的信息"><a href="#8）查询至少有一门课与学号为“01”的同学所学相同的同学的信息" class="headerlink" title="8）查询至少有一门课与学号为“01”的同学所学相同的同学的信息"></a>8）查询至少有一门课与学号为“01”的同学所学相同的同学的信息</h3><h3 id="9）查询和“01”号的同学学习的课程-完全相同的其他同学的信息"><a href="#9）查询和“01”号的同学学习的课程-完全相同的其他同学的信息" class="headerlink" title="9）查询和“01”号的同学学习的课程 完全相同的其他同学的信息"></a>9）查询和“01”号的同学学习的课程 完全相同的其他同学的信息</h3><h3 id="10）查询没学过”张三”老师讲授的任一门课程的学生姓名"><a href="#10）查询没学过”张三”老师讲授的任一门课程的学生姓名" class="headerlink" title="10）查询没学过”张三”老师讲授的任一门课程的学生姓名"></a>10）查询没学过”张三”老师讲授的任一门课程的学生姓名</h3>
       </div>
     </div>
   </div>
@@ -99,12 +97,12 @@
 <div class="lx-navigation">
 	<div class="lx-cover next lx-cover-sm" style="background-image: url(/images/footer-l.jpg)">
 		<div class="overlay"></div>
-		<a class="copy" href="/2022/10/12/%E5%BB%BA%E7%AB%99%E8%AE%B0%E5%BD%95/">
+		<a class="copy" href="#">
 			<div class="display-t">
 				<div class="display-tc">
 					<div>
 						<span>Next</span>
-						<h3>版本记录</h3>
+						<h3>没有更新的文章</h3>
 					</div>
 				</div>
 			</div>
@@ -112,12 +110,12 @@
 	</div>
         <div class="lx-cover prev lx-cover-sm" style="background-image: url(/images/footer-r.jpg)">
 		<div class="overlay"></div>
-		<a class="copy" href="#">
+		<a class="copy" href="/2022/10/16/%E4%B9%A6%E7%B1%8D%E5%8E%86%E7%A8%8B/">
 			<div class="display-t">
 				<div class="display-tc">
 					<div>
 						<span>Prev</span>
-						<h3>没有更早的文章</h3>
+						<h3>书籍历程</h3>
 					</div>
 				</div>
 			</div>
