@@ -4,7 +4,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="theme-color" content=#66ccff>
-  <title>SQL50题（索引） | 喵窝</title>
+  <title>SQL50题（11-20题） | 喵窝</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="author" content="Inari">
   <meta name="keywords" content="">
@@ -72,8 +72,8 @@
       
       <div class="page-title">
         <div class="avatar"><a href="/"><img src="/images/avatar.jpg" alt="Inari"></a></div>
-        <span>2022-10-17</span>
-        <h2>SQL50题（索引）</h2>
+        <span>2022-10-19</span>
+        <h2>SQL50题（11-20题）</h2>
         
         <div class="social-links">
     <a href="https://psnine.com/psnid/lchiot" target="_blank" title="social-link"><i class="fa fa-gamepad fa-fw"></i></a>
@@ -86,14 +86,16 @@
   <div class="lx-post">
     <div class="lx-entry padding">
       <div>
-        <img src="/2022/10/17/SQL50%E9%A2%98%EF%BC%88%E7%B4%A2%E5%BC%95%EF%BC%89/%E9%85%8D%E5%9B%BE.jpg" class="" title="From Blue Achieve">
+        <img src="/2022/10/19/SQL50%E9%A2%98%EF%BC%8811-20%E9%A2%98%EF%BC%89/%E9%85%8D%E5%9B%BE.jpg" class="" title="From Blue Achieve">
 <span id="more"></span> 
 
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>对于SQL语句的练习题，网上流传最广的就是这一套所谓经典50题，并且这套50题也有相当多的解答文章。<br>可能是因为流传度太广了，不同文章中这套题的源数据、题目内容以及排列顺序会有出入，大致分为两个版本。<br>本文选择成绩表格被命名为SC（而不是Score），且前几道题有额外附加题的版本，给出自己练习时的解答。<br>在解答题目的同时，也会加入注释来说明每一题的思路以及特别需要注意的地方，方便自己进行回顾。</p>
-<h2 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h2><p>数据库样例：<a target="_blank" rel="noopener" href="https://inarimoe.top/2022/10/19/SQL50%E9%A2%98%EF%BC%88%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A0%B7%E4%BE%8B%EF%BC%89/">点我</a><br>1至10题解答笔记：<a target="_blank" rel="noopener" href="https://inarimoe.top/2022/10/19/SQL50%E9%A2%98%EF%BC%881-10%E9%A2%98%EF%BC%89/">点我</a></p>
-<h2 id="参考材料"><a href="#参考材料" class="headerlink" title="参考材料"></a>参考材料</h2><p>解答1（By Kaidi_G）：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/476b52ee4f1b">点我</a><br>解答2（By 不高冷面包人）：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43348955/article/details/120481733?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_baidulandingword~default-0-120481733-blog-106930311.pc_relevant_default&spm=1001.2101.3001.4242.1&utm_relevant_index=3">点我</a><br>解答3（By 胖熊酱）：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/67645448">点我</a><br>解答4（By Roar）：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/72223558">点我</a><br>解答5（By GodSuzzZ）：<a target="_blank" rel="noopener" href="https://blog.csdn.net/GodSuzzZ/article/details/106930311">点我</a><br>视频（By 陆小亮）：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1q4411G7Lw?p=1">点我</a></p>
-<h2 id="题目内容"><a href="#题目内容" class="headerlink" title="题目内容"></a>题目内容</h2><p>1-0 查询“01”课程比“02”课程成绩高的学生的信息及课程分数<br>1-1 查询同时存在“01”课程和“02”课程的情况<br>1-2 查询存在“01”课程但可能不存在“02”课程的情况（不存在时显示为 Null )<br>1-3 查询不存在“01”课程但存在“02”课程的情况<br>2 查询平均成绩大于等于 60 分的同学的学生编号和学生姓名和平均成绩<br>3 查询在 SC 表存在成绩的学生信息<br>4-0 查询所有同学的学生编号、学生姓名、选课总数、所有课程的总成绩（没成绩的显示为Null）<br>4-1 查有成绩的学生信息<br>5 查询「李」姓老师的数量<br>6 查询学过「张三」老师授课的同学的信息<br>7 查询没有学全所有课程的同学的信息<br>8 查询至少有一门课与学号为“01”的同学所学相同的同学的信息<br>9 查询和“01”号的同学学习的课程完全相同的其他同学的信息<br>10 查询没学过「张三」老师讲授的任一门课程的学生姓名<br>11 查询两门及其以上不及格课程的同学的学号，姓名及其平均成绩<br>12 检索“01”课程分数小于 60，按分数降序排列的学生信息<br>13 按平均成绩从高到低显示所有学生的所有课程的成绩以及平均成绩<br>14 查询各科成绩最高分、最低分和平均分：<br>以如下形式显示：课程 ID，课程 name，最高分，最低分，平均分，及格率，中等率，优良率，优秀率<br>及格为&gt;&#x3D;60，中等为：70-80，优良为：80-90，优秀为：&gt;&#x3D;90<br>要求输出课程号和选修人数，查询结果按人数降序排列，若人数相同，按课程号升序排列<br>15-0 按各科成绩进行排序，并显示排名，Score 重复时保留名次空缺<br>15-1 按各科成绩进行排序，并显示排名，Score 重复时合并名次<br>16-0 查询学生的总成绩，并进行排名，总分重复时保留名次空缺<br>16-1 查询学生的总成绩，并进行排名，总分重复时不保留名次空缺<br>17 统计各科成绩各分数段人数：课程编号，课程名称，[100-85]，[85-70]，[70-60]，[60-0] 及所占百分比<br>18 查询各科成绩前三名的记录<br>19 查询每门课程被选修的学生数<br>20 查询出只选修两门课程的学生学号和姓名</p>
-
+<h2 id="11-到-20-题"><a href="#11-到-20-题" class="headerlink" title="11 到 20 题"></a>11 到 20 题</h2><h3 id="11-查询两门及其以上不及格课程的同学的学号，姓名及其平均成绩"><a href="#11-查询两门及其以上不及格课程的同学的学号，姓名及其平均成绩" class="headerlink" title="11 查询两门及其以上不及格课程的同学的学号，姓名及其平均成绩"></a>11 查询两门及其以上不及格课程的同学的学号，姓名及其平均成绩</h3><h3 id="12-检索“01”课程分数小于-60，按分数降序排列的学生信息"><a href="#12-检索“01”课程分数小于-60，按分数降序排列的学生信息" class="headerlink" title="12 检索“01”课程分数小于 60，按分数降序排列的学生信息"></a>12 检索“01”课程分数小于 60，按分数降序排列的学生信息</h3><h3 id="13-按平均成绩从高到低显示所有学生的所有课程的成绩以及平均成绩"><a href="#13-按平均成绩从高到低显示所有学生的所有课程的成绩以及平均成绩" class="headerlink" title="13 按平均成绩从高到低显示所有学生的所有课程的成绩以及平均成绩"></a>13 按平均成绩从高到低显示所有学生的所有课程的成绩以及平均成绩</h3><h3 id="14-查询各科成绩最高分、最低分和平均分："><a href="#14-查询各科成绩最高分、最低分和平均分：" class="headerlink" title="14 查询各科成绩最高分、最低分和平均分："></a>14 查询各科成绩最高分、最低分和平均分：</h3><div class="note success">
+            <h4 id="要求"><a href="#要求" class="headerlink" title="要求"></a>要求</h4><p>以如下形式显示：课程 ID，课程 name，最高分，最低分，平均分，及格率，中等率，优良率，优秀率<br>及格为&gt;&#x3D;60，中等为：70-80，优良为：80-90，优秀为：&gt;&#x3D;90<br>要求输出课程号和选修人数，查询结果按人数降序排列，若人数相同，按课程号升序排列  </p>
+          </div>  
+<h3 id="15-0-按各科成绩进行排序，并显示排名，Score-重复时保留名次空缺"><a href="#15-0-按各科成绩进行排序，并显示排名，Score-重复时保留名次空缺" class="headerlink" title="15-0 按各科成绩进行排序，并显示排名，Score 重复时保留名次空缺"></a>15-0 按各科成绩进行排序，并显示排名，Score 重复时保留名次空缺</h3><h3 id="15-1-按各科成绩进行排序，并显示排名，Score-重复时合并名次"><a href="#15-1-按各科成绩进行排序，并显示排名，Score-重复时合并名次" class="headerlink" title="15-1 按各科成绩进行排序，并显示排名，Score 重复时合并名次"></a>15-1 按各科成绩进行排序，并显示排名，Score 重复时合并名次</h3><h3 id="16-0-查询学生的总成绩，并进行排名，总分重复时保留名次空缺"><a href="#16-0-查询学生的总成绩，并进行排名，总分重复时保留名次空缺" class="headerlink" title="16-0 查询学生的总成绩，并进行排名，总分重复时保留名次空缺"></a>16-0 查询学生的总成绩，并进行排名，总分重复时保留名次空缺</h3><h3 id="16-1-查询学生的总成绩，并进行排名，总分重复时不保留名次空缺"><a href="#16-1-查询学生的总成绩，并进行排名，总分重复时不保留名次空缺" class="headerlink" title="16-1 查询学生的总成绩，并进行排名，总分重复时不保留名次空缺"></a>16-1 查询学生的总成绩，并进行排名，总分重复时不保留名次空缺</h3><h3 id="17-统计各科成绩各分数段人数："><a href="#17-统计各科成绩各分数段人数：" class="headerlink" title="17 统计各科成绩各分数段人数："></a>17 统计各科成绩各分数段人数：</h3><div class="note success">
+            <h4 id="要求"><a href="#要求" class="headerlink" title="要求"></a>要求</h4><p>需要统计课程编号，课程名称，[100-85]，[85-70]，[70-60]，[60-0] 及所占百分比</p>
+          </div>  
+<h3 id="18-查询各科成绩前三名的记录"><a href="#18-查询各科成绩前三名的记录" class="headerlink" title="18 查询各科成绩前三名的记录"></a>18 查询各科成绩前三名的记录</h3><h3 id="19-查询每门课程被选修的学生数"><a href="#19-查询每门课程被选修的学生数" class="headerlink" title="19 查询每门课程被选修的学生数"></a>19 查询每门课程被选修的学生数</h3><h3 id="20-查询出只选修两门课程的学生学号和姓名"><a href="#20-查询出只选修两门课程的学生学号和姓名" class="headerlink" title="20 查询出只选修两门课程的学生学号和姓名"></a>20 查询出只选修两门课程的学生学号和姓名</h3>
       </div>
     </div>
   </div>
@@ -101,12 +103,12 @@
 <div class="lx-navigation">
 	<div class="lx-cover next lx-cover-sm" style="background-image: url(/images/footer-l.jpg)">
 		<div class="overlay"></div>
-		<a class="copy" href="/2022/10/19/SQL50%E9%A2%98%EF%BC%88%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A0%B7%E4%BE%8B%EF%BC%89/">
+		<a class="copy" href="#">
 			<div class="display-t">
 				<div class="display-tc">
 					<div>
 						<span>Next</span>
-						<h3>SQL50题（...</h3>
+						<h3>没有更新的文章</h3>
 					</div>
 				</div>
 			</div>
@@ -114,12 +116,12 @@
 	</div>
         <div class="lx-cover prev lx-cover-sm" style="background-image: url(/images/footer-r.jpg)">
 		<div class="overlay"></div>
-		<a class="copy" href="/2022/10/16/%E4%B9%A6%E7%B1%8D%E5%8E%86%E7%A8%8B/">
+		<a class="copy" href="/2022/10/19/SQL50%E9%A2%98%EF%BC%881-10%E9%A2%98%EF%BC%89/">
 			<div class="display-t">
 				<div class="display-tc">
 					<div>
 						<span>Prev</span>
-						<h3>书籍历程</h3>
+						<h3>SQL50题（...</h3>
 					</div>
 				</div>
 			</div>
