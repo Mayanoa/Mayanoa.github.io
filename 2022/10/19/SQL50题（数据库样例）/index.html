@@ -4,7 +4,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="theme-color" content=#66ccff>
-  <title>书籍历程 | 喵窝</title>
+  <title>SQL50题（数据库样例） | 喵窝</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="author" content="Inari">
   <meta name="keywords" content="">
@@ -72,8 +72,8 @@
       
       <div class="page-title">
         <div class="avatar"><a href="/"><img src="/images/avatar.jpg" alt="Inari"></a></div>
-        <span>2022-10-16</span>
-        <h2>书籍历程</h2>
+        <span>2022-10-19</span>
+        <h2>SQL50题（数据库样例）</h2>
         
         <div class="social-links">
     <a href="https://psnine.com/psnid/lchiot" target="_blank" title="social-link"><i class="fa fa-gamepad fa-fw"></i></a>
@@ -86,22 +86,236 @@
   <div class="lx-post">
     <div class="lx-entry padding">
       <div>
-        <img src="/2022/10/16/%E4%B9%A6%E7%B1%8D%E5%8E%86%E7%A8%8B/%E9%85%8D%E5%9B%BE.jpg" class="" title="From SINce Memories 星穹之下">
-<span id="more"></span>
-<h2 id="书籍历程"><a href="#书籍历程" class="headerlink" title="书籍历程"></a>书籍历程</h2><table>
+        <img src="/2022/10/19/SQL50%E9%A2%98%EF%BC%88%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A0%B7%E4%BE%8B%EF%BC%89/%E9%85%8D%E5%9B%BE.jpg" class="" title="Blue Achieve">
+<span id="more"></span> 
+
+<h2 id="数据库样例"><a href="#数据库样例" class="headerlink" title="数据库样例"></a>数据库样例</h2><h3 id="课程表（Course）"><a href="#课程表（Course）" class="headerlink" title="课程表（Course）"></a>课程表（Course）</h3><p>CId-课程编号 丨 Cname-课程名字 丨 TId-教师编号       </p>
+<table>
 <thead>
 <tr>
-<th align="center">书籍名称</th>
-<th align="center">类型</th>
-<th align="center">阅读时间</th>
-<th align="center">评级</th>
+<th align="center">CId</th>
+<th align="center">Cname</th>
+<th align="center">TId</th>
 </tr>
 </thead>
 <tbody><tr>
-<td align="center">凶人邸殺人事件</td>
-<td align="center">推理</td>
-<td align="center">2022.10</td>
-<td align="center">A</td>
+<td align="center">01</td>
+<td align="center">语文</td>
+<td align="center">02</td>
+</tr>
+<tr>
+<td align="center">02</td>
+<td align="center">数学</td>
+<td align="center">01</td>
+</tr>
+<tr>
+<td align="center">03</td>
+<td align="center">英语</td>
+<td align="center">03</td>
+</tr>
+</tbody></table>
+<h3 id="学生表（Student）"><a href="#学生表（Student）" class="headerlink" title="学生表（Student）"></a>学生表（Student）</h3><p>SId-学生编号 丨 Sname-学生姓名 丨 Sage-出生年月 丨 Ssex-学生性别</p>
+<table>
+<thead>
+<tr>
+<th align="center">SId</th>
+<th align="center">Sname</th>
+<th align="center">Sage</th>
+<th align="center">Ssex</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">01</td>
+<td align="center">赵雷</td>
+<td align="center">1990-01-01</td>
+<td align="center">男</td>
+</tr>
+<tr>
+<td align="center">02</td>
+<td align="center">钱电</td>
+<td align="center">1990-12-21</td>
+<td align="center">男</td>
+</tr>
+<tr>
+<td align="center">03</td>
+<td align="center">孙风</td>
+<td align="center">1990-12-20</td>
+<td align="center">男</td>
+</tr>
+<tr>
+<td align="center">04</td>
+<td align="center">李云</td>
+<td align="center">1990-12-06</td>
+<td align="center">男</td>
+</tr>
+<tr>
+<td align="center">05</td>
+<td align="center">周梅</td>
+<td align="center">1991-12-01</td>
+<td align="center">女</td>
+</tr>
+<tr>
+<td align="center">06</td>
+<td align="center">吴兰</td>
+<td align="center">1992-01-01</td>
+<td align="center">女</td>
+</tr>
+<tr>
+<td align="center">07</td>
+<td align="center">郑竹</td>
+<td align="center">1989-01-01</td>
+<td align="center">女</td>
+</tr>
+<tr>
+<td align="center">09</td>
+<td align="center">张三</td>
+<td align="center">2017-12-20</td>
+<td align="center">女</td>
+</tr>
+<tr>
+<td align="center">10</td>
+<td align="center">李四</td>
+<td align="center">2017-12-25</td>
+<td align="center">女</td>
+</tr>
+<tr>
+<td align="center">11</td>
+<td align="center">李四</td>
+<td align="center">2012-06-06</td>
+<td align="center">女</td>
+</tr>
+<tr>
+<td align="center">12</td>
+<td align="center">赵六</td>
+<td align="center">2013-06-13</td>
+<td align="center">女</td>
+</tr>
+<tr>
+<td align="center">13</td>
+<td align="center">孙七</td>
+<td align="center">2014-06-01</td>
+<td align="center">女</td>
+</tr>
+</tbody></table>
+<h3 id="教师表（Teacher）"><a href="#教师表（Teacher）" class="headerlink" title="教师表（Teacher）"></a>教师表（Teacher）</h3><p>TId-教师编号 丨 Tname-教师姓名</p>
+<table>
+<thead>
+<tr>
+<th align="center">TId</th>
+<th align="center">Tname</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">01</td>
+<td align="center">张三</td>
+</tr>
+<tr>
+<td align="center">02</td>
+<td align="center">李四</td>
+</tr>
+<tr>
+<td align="center">03</td>
+<td align="center">王五</td>
+</tr>
+</tbody></table>
+<h3 id="成绩表（SC）"><a href="#成绩表（SC）" class="headerlink" title="成绩表（SC）"></a>成绩表（SC）</h3><p>SId-学生编号 丨 CId-课程编号 丨 score-分数</p>
+<table>
+<thead>
+<tr>
+<th align="center">SId</th>
+<th align="center">CId</th>
+<th align="center">score</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">01</td>
+<td align="center">01</td>
+<td align="center">80</td>
+</tr>
+<tr>
+<td align="center">01</td>
+<td align="center">02</td>
+<td align="center">90</td>
+</tr>
+<tr>
+<td align="center">01</td>
+<td align="center">03</td>
+<td align="center">99</td>
+</tr>
+<tr>
+<td align="center">02</td>
+<td align="center">01</td>
+<td align="center">70</td>
+</tr>
+<tr>
+<td align="center">02</td>
+<td align="center">02</td>
+<td align="center">60</td>
+</tr>
+<tr>
+<td align="center">02</td>
+<td align="center">03</td>
+<td align="center">80</td>
+</tr>
+<tr>
+<td align="center">03</td>
+<td align="center">01</td>
+<td align="center">80</td>
+</tr>
+<tr>
+<td align="center">03</td>
+<td align="center">02</td>
+<td align="center">80</td>
+</tr>
+<tr>
+<td align="center">03</td>
+<td align="center">03</td>
+<td align="center">80</td>
+</tr>
+<tr>
+<td align="center">04</td>
+<td align="center">01</td>
+<td align="center">50</td>
+</tr>
+<tr>
+<td align="center">04</td>
+<td align="center">02</td>
+<td align="center">30</td>
+</tr>
+<tr>
+<td align="center">04</td>
+<td align="center">03</td>
+<td align="center">20</td>
+</tr>
+<tr>
+<td align="center">05</td>
+<td align="center">01</td>
+<td align="center">76</td>
+</tr>
+<tr>
+<td align="center">05</td>
+<td align="center">02</td>
+<td align="center">87</td>
+</tr>
+<tr>
+<td align="center">06</td>
+<td align="center">01</td>
+<td align="center">31</td>
+</tr>
+<tr>
+<td align="center">06</td>
+<td align="center">03</td>
+<td align="center">34</td>
+</tr>
+<tr>
+<td align="center">07</td>
+<td align="center">02</td>
+<td align="center">89</td>
+</tr>
+<tr>
+<td align="center">07</td>
+<td align="center">03</td>
+<td align="center">98</td>
 </tr>
 </tbody></table>
 
@@ -112,7 +326,7 @@
 <div class="lx-navigation">
 	<div class="lx-cover next lx-cover-sm" style="background-image: url(/images/footer-l.jpg)">
 		<div class="overlay"></div>
-		<a class="copy" href="/2022/10/17/SQL50%E9%A2%98%EF%BC%88%E7%B4%A2%E5%BC%95%EF%BC%89/">
+		<a class="copy" href="/2022/10/19/SQL50%E9%A2%98%EF%BC%881-10%E9%A2%98%EF%BC%89/">
 			<div class="display-t">
 				<div class="display-tc">
 					<div>
@@ -125,12 +339,12 @@
 	</div>
         <div class="lx-cover prev lx-cover-sm" style="background-image: url(/images/footer-r.jpg)">
 		<div class="overlay"></div>
-		<a class="copy" href="/2022/10/12/%E6%B8%B8%E6%88%8F%E5%8E%86%E7%A8%8B/">
+		<a class="copy" href="/2022/10/17/SQL50%E9%A2%98%EF%BC%88%E7%B4%A2%E5%BC%95%EF%BC%89/">
 			<div class="display-t">
 				<div class="display-tc">
 					<div>
 						<span>Prev</span>
-						<h3>游戏历程</h3>
+						<h3>SQL50题（...</h3>
 					</div>
 				</div>
 			</div>
