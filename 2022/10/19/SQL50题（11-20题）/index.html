@@ -89,13 +89,52 @@
         <img src="/2022/10/19/SQL50%E9%A2%98%EF%BC%8811-20%E9%A2%98%EF%BC%89/%E9%85%8D%E5%9B%BE.jpg" class="" title="From Blue Achieve">
 <span id="more"></span> 
 
-<h2 id="11-到-20-题"><a href="#11-到-20-题" class="headerlink" title="11 到 20 题"></a>11 到 20 题</h2><h3 id="11-查询两门及其以上不及格课程的同学的学号，姓名及其平均成绩"><a href="#11-查询两门及其以上不及格课程的同学的学号，姓名及其平均成绩" class="headerlink" title="11 查询两门及其以上不及格课程的同学的学号，姓名及其平均成绩"></a>11 查询两门及其以上不及格课程的同学的学号，姓名及其平均成绩</h3><h3 id="12-检索“01”课程分数小于-60，按分数降序排列的学生信息"><a href="#12-检索“01”课程分数小于-60，按分数降序排列的学生信息" class="headerlink" title="12 检索“01”课程分数小于 60，按分数降序排列的学生信息"></a>12 检索“01”课程分数小于 60，按分数降序排列的学生信息</h3><h3 id="13-按平均成绩从高到低显示所有学生的所有课程的成绩以及平均成绩"><a href="#13-按平均成绩从高到低显示所有学生的所有课程的成绩以及平均成绩" class="headerlink" title="13 按平均成绩从高到低显示所有学生的所有课程的成绩以及平均成绩"></a>13 按平均成绩从高到低显示所有学生的所有课程的成绩以及平均成绩</h3><h3 id="14-查询各科成绩最高分、最低分和平均分："><a href="#14-查询各科成绩最高分、最低分和平均分：" class="headerlink" title="14 查询各科成绩最高分、最低分和平均分："></a>14 查询各科成绩最高分、最低分和平均分：</h3><div class="note success">
-            <h4 id="要求"><a href="#要求" class="headerlink" title="要求"></a>要求</h4><p>以如下形式显示：课程 ID，课程 name，最高分，最低分，平均分，及格率，中等率，优良率，优秀率<br>及格为&gt;&#x3D;60，中等为：70-80，优良为：80-90，优秀为：&gt;&#x3D;90<br>要求输出课程号和选修人数，查询结果按人数降序排列，若人数相同，按课程号升序排列  </p>
+<h2 id="11-到-20-题"><a href="#11-到-20-题" class="headerlink" title="11 到 20 题"></a>11 到 20 题</h2><h3 id="11-查询两门及其以上不及格课程的同学的学号，姓名及其平均成绩"><a href="#11-查询两门及其以上不及格课程的同学的学号，姓名及其平均成绩" class="headerlink" title="11 查询两门及其以上不及格课程的同学的学号，姓名及其平均成绩"></a>11 查询两门及其以上不及格课程的同学的学号，姓名及其平均成绩</h3><div class="note info">
+            <h4 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h4><p>两门以上课程不及格需要满足两个条件：<br>条件1：不及格，使用WHERE从SC表中过滤出成绩小于60的数据。<br>条件2：两门以上，在条件1的基础上，使用GROUP BY按学生ID分组，使用COUNT统计不及格课程数目。<br>因为需要查询学生的姓名，需要使用JOIN联结Student表。</p>
           </div>  
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SELECT Student.SId, Sname, Avg(score) FROM SC </span><br><span class="line">LEFT OUTER JOIN Student ON SC.SId = Student.SId</span><br><span class="line">WHERE score &lt; 60</span><br><span class="line">GROUP BY SC.SId</span><br><span class="line">HAVING COUNT(CId) &gt; 1;</span><br></pre></td></tr></table></figure>
+
+<h3 id="12-检索“01”课程分数小于-60，按分数降序排列的学生信息"><a href="#12-检索“01”课程分数小于-60，按分数降序排列的学生信息" class="headerlink" title="12 检索“01”课程分数小于 60，按分数降序排列的学生信息"></a>12 检索“01”课程分数小于 60，按分数降序排列的学生信息</h3><div class="note info">
+            <h4 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h4><p>直接按条件过滤SC表即可，因为需要按分数排序查询学生信息，所以还是要用联结。<br>排序使用ORDER BY，因为是降序，使用DESC。</p>
+          </div>  
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT Student.* FROM SC </span><br><span class="line">LEFT OUTER JOIN Student ON SC.SId = Student.SId</span><br><span class="line">WHERE CId = &#x27;01&#x27; AND score &lt; 60 </span><br><span class="line">ORDER BY score DESC;</span><br></pre></td></tr></table></figure>
+
+<h3 id="13-按平均成绩从高到低显示所有学生的所有课程的成绩以及平均成绩"><a href="#13-按平均成绩从高到低显示所有学生的所有课程的成绩以及平均成绩" class="headerlink" title="13 按平均成绩从高到低显示所有学生的所有课程的成绩以及平均成绩"></a>13 按平均成绩从高到低显示所有学生的所有课程的成绩以及平均成绩</h3><div class="note info">
+            <h4 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h4><p>使用AVG和GROUP BY分组算出平均成绩后，每个学生ID只会保留一条记录。<br>题目要求从显示所有学生所有课程，只用GROUP BY无法满足需求。<br>因此在用GROUP BY计算出平均成绩后，需要将查询结果和SC表再进行一次联结。<br>最后再按照计算字段Score_AVG降序排序。</p>
+          </div>  
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SELECT SC.*, Score_AVG FROM SC</span><br><span class="line">INNER JOIN </span><br><span class="line">(SELECT SId, AVG(score) AS Score_AVG FROM SC GROUP BY SId ) AS SCAVG</span><br><span class="line">ON SC.SId =SCAVG.SId</span><br><span class="line">ORDER BY SCORE_AVG DESC;</span><br></pre></td></tr></table></figure>
+
+<h3 id="14-查询各科成绩最高分、最低分和平均分："><a href="#14-查询各科成绩最高分、最低分和平均分：" class="headerlink" title="14 查询各科成绩最高分、最低分和平均分："></a>14 查询各科成绩最高分、最低分和平均分：</h3><div class="note success">
+            <h4 id="要求"><a href="#要求" class="headerlink" title="要求"></a>要求</h4><p>以如下形式显示：课程ID，课程name，最高分，最低分，平均分，及格率，中等率，优良率，优秀率。<br>及格为&gt;&#x3D;60，中等为：70-80，优良为：80-90，优秀为：&gt;&#x3D;90。<br>要求输出课程号和选修人数，查询结果按人数降序排列，若人数相同，按课程号升序排列。  </p>
+          </div>  
+
+<div class="note danger">
+            <h4 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h4><p>难题，本题需要使用CASE WHEN语句，根据成绩所处的区间，判定该成绩所处的位置。<br>以及格率为例，需要计算及格的人数和总人数，通过除法算出及格率。<br>计算及格的人数时，使用CASE WHEN判断score是否大于等于60，如果是的话设置为1，不是则设置为0。<br>这样通过SUM可以将若干个及格学生（数值为1）相加得出总及格人数。<br>中等率、优良率、优秀率同理，注意CASE WHEN最后不要忘记加END结束语句。<br>本题还要求输出课程name，所以需要用联结将SC和Course联结起来。<br>排序涉及到两个次序的排序，所以ORDER BY后跟两个字段分别降序和升序。</p>
+          </div>  
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">SELECT SC.CId, COUNT(SId), Cname, MAX(score), MIN(score), AVG(Score),</span><br><span class="line">SUM(CASE WHEN score &gt;=60 THEN 1 ELSE 0 END) / COUNT(score) AS &#x27;及格率&#x27;,</span><br><span class="line">SUM(CASE WHEN score &gt;=70 AND score &lt;80 THEN 1 ELSE 0 END) / COUNT(score) AS &#x27;中等率&#x27;,</span><br><span class="line">SUM(CASE WHEN score &gt;=80 AND score &lt;90 THEN 1 ELSE 0 END) / COUNT(score) AS &#x27;优良率&#x27;,</span><br><span class="line">SUM(CASE WHEN score &gt;=90 THEN 1 ELSE 0 END) / COUNT(score) AS &#x27;优秀率&#x27;</span><br><span class="line">FROM SC INNER JOIN Course ON SC.CId = Course.CId</span><br><span class="line">GROUP BY SC.CId</span><br><span class="line">ORDER BY COUNT(SId) DESC, CId;</span><br></pre></td></tr></table></figure>
+
+
+
 <h3 id="15-0-按各科成绩进行排序，并显示排名，Score-重复时保留名次空缺"><a href="#15-0-按各科成绩进行排序，并显示排名，Score-重复时保留名次空缺" class="headerlink" title="15-0 按各科成绩进行排序，并显示排名，Score 重复时保留名次空缺"></a>15-0 按各科成绩进行排序，并显示排名，Score 重复时保留名次空缺</h3><h3 id="15-1-按各科成绩进行排序，并显示排名，Score-重复时合并名次"><a href="#15-1-按各科成绩进行排序，并显示排名，Score-重复时合并名次" class="headerlink" title="15-1 按各科成绩进行排序，并显示排名，Score 重复时合并名次"></a>15-1 按各科成绩进行排序，并显示排名，Score 重复时合并名次</h3><h3 id="16-0-查询学生的总成绩，并进行排名，总分重复时保留名次空缺"><a href="#16-0-查询学生的总成绩，并进行排名，总分重复时保留名次空缺" class="headerlink" title="16-0 查询学生的总成绩，并进行排名，总分重复时保留名次空缺"></a>16-0 查询学生的总成绩，并进行排名，总分重复时保留名次空缺</h3><h3 id="16-1-查询学生的总成绩，并进行排名，总分重复时不保留名次空缺"><a href="#16-1-查询学生的总成绩，并进行排名，总分重复时不保留名次空缺" class="headerlink" title="16-1 查询学生的总成绩，并进行排名，总分重复时不保留名次空缺"></a>16-1 查询学生的总成绩，并进行排名，总分重复时不保留名次空缺</h3><h3 id="17-统计各科成绩各分数段人数："><a href="#17-统计各科成绩各分数段人数：" class="headerlink" title="17 统计各科成绩各分数段人数："></a>17 统计各科成绩各分数段人数：</h3><div class="note success">
             <h4 id="要求"><a href="#要求" class="headerlink" title="要求"></a>要求</h4><p>需要统计课程编号，课程名称，[100-85]，[85-70]，[70-60]，[60-0] 及所占百分比</p>
           </div>  
-<h3 id="18-查询各科成绩前三名的记录"><a href="#18-查询各科成绩前三名的记录" class="headerlink" title="18 查询各科成绩前三名的记录"></a>18 查询各科成绩前三名的记录</h3><h3 id="19-查询每门课程被选修的学生数"><a href="#19-查询每门课程被选修的学生数" class="headerlink" title="19 查询每门课程被选修的学生数"></a>19 查询每门课程被选修的学生数</h3><h3 id="20-查询出只选修两门课程的学生学号和姓名"><a href="#20-查询出只选修两门课程的学生学号和姓名" class="headerlink" title="20 查询出只选修两门课程的学生学号和姓名"></a>20 查询出只选修两门课程的学生学号和姓名</h3>
+<h3 id="18-查询各科成绩前三名的记录"><a href="#18-查询各科成绩前三名的记录" class="headerlink" title="18 查询各科成绩前三名的记录"></a>18 查询各科成绩前三名的记录</h3><h3 id="19-查询每门课程被选修的学生数"><a href="#19-查询每门课程被选修的学生数" class="headerlink" title="19 查询每门课程被选修的学生数"></a>19 查询每门课程被选修的学生数</h3><div class="note info">
+            <h4 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h4><p>GROUP BY将CId分组后用COUNT统计即可。</p>
+          </div>  
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT CId, COUNT(SId) FROM SC </span><br><span class="line">GROUP BY CId;</span><br></pre></td></tr></table></figure>
+
+<h3 id="20-查询出只选修两门课程的学生学号和姓名"><a href="#20-查询出只选修两门课程的学生学号和姓名" class="headerlink" title="20 查询出只选修两门课程的学生学号和姓名"></a>20 查询出只选修两门课程的学生学号和姓名</h3><div class="note info">
+            <h4 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h4><p>使用子查询先查询学了两门课的学生ID，再用这些ID去查学生信息。<br>当然这题也可以用联结来解决。</p>
+          </div>  
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT Student.SId, Sname FROM Student</span><br><span class="line">WHERE Student.SId IN (</span><br><span class="line">SELECT SC.SId FROM SC GROUP BY SC.SId HAVING COUNT(CId) = 2);</span><br></pre></td></tr></table></figure>
+
+
       </div>
     </div>
   </div>
