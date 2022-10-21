@@ -95,7 +95,7 @@
 
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SELECT Student.SId, Sname, Avg(score) FROM SC </span><br><span class="line">LEFT OUTER JOIN Student ON SC.SId = Student.SId</span><br><span class="line">WHERE score &lt; 60</span><br><span class="line">GROUP BY SC.SId</span><br><span class="line">HAVING COUNT(CId) &gt; 1;</span><br></pre></td></tr></table></figure>
 
-<h3 id="12-检索“01”课程分数小于-60，按分数降序排列的学生信息"><a href="#12-检索“01”课程分数小于-60，按分数降序排列的学生信息" class="headerlink" title="12 检索“01”课程分数小于 60，按分数降序排列的学生信息"></a>12 检索“01”课程分数小于 60，按分数降序排列的学生信息</h3><div class="note info">
+<h3 id="12-检索“01”课程分数小于60，按分数降序排列的学生信息"><a href="#12-检索“01”课程分数小于60，按分数降序排列的学生信息" class="headerlink" title="12 检索“01”课程分数小于60，按分数降序排列的学生信息"></a>12 检索“01”课程分数小于60，按分数降序排列的学生信息</h3><div class="note info">
             <h4 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h4><p>直接按条件过滤SC表即可，因为需要按分数排序查询学生信息，所以还是要用联结。<br>排序使用ORDER BY，因为是降序，使用DESC。</p>
           </div>  
 
@@ -142,12 +142,12 @@
 <div class="lx-navigation">
 	<div class="lx-cover next lx-cover-sm" style="background-image: url(/images/footer-l.jpg)">
 		<div class="overlay"></div>
-		<a class="copy" href="#">
+		<a class="copy" href="/2022/10/21/SQL50%E9%A2%98%EF%BC%8821-30%E9%A2%98%EF%BC%89/">
 			<div class="display-t">
 				<div class="display-tc">
 					<div>
 						<span>Next</span>
-						<h3>没有更新的文章</h3>
+						<h3>SQL50题（...</h3>
 					</div>
 				</div>
 			</div>

@@ -115,13 +115,13 @@
 
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM SC </span><br><span class="line">WHERE SId NOT IN (</span><br><span class="line">SELECT SId FROM SC WHERE CId = &#x27;01&#x27; )</span><br><span class="line">AND CId = &#x27;02&#x27; ;</span><br></pre></td></tr></table></figure>
 
-<h3 id="2-查询平均成绩大于等于-60-分的同学的学生编号和学生姓名和平均成绩"><a href="#2-查询平均成绩大于等于-60-分的同学的学生编号和学生姓名和平均成绩" class="headerlink" title="2 查询平均成绩大于等于 60 分的同学的学生编号和学生姓名和平均成绩"></a>2 查询平均成绩大于等于 60 分的同学的学生编号和学生姓名和平均成绩</h3><div class="note info">
+<h3 id="2-查询平均成绩大于等于60分的同学的学生编号和学生姓名和平均成绩"><a href="#2-查询平均成绩大于等于60分的同学的学生编号和学生姓名和平均成绩" class="headerlink" title="2 查询平均成绩大于等于60分的同学的学生编号和学生姓名和平均成绩"></a>2 查询平均成绩大于等于60分的同学的学生编号和学生姓名和平均成绩</h3><div class="note info">
             <h4 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h4><p>因为是需要按照学生的ID进行统计，因此需要使用GROUP BY分组。<br>在分组后，需要使用HAVING子句结合聚集函数过滤数据。<br>注意此处因为有分组所以不能使用WHERE子句，WHERE子句也不和聚集函数一起使用。</p>
           </div>
 
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SELECT Student.SID, Student.Sname, AVG(SC.score) FROM Student</span><br><span class="line">INNER JOIN SC ON</span><br><span class="line">Student.SId = SC.SId</span><br><span class="line">GROUP BY SC.SId</span><br><span class="line">HAVING AVG(SC.score) &gt;= 60;</span><br></pre></td></tr></table></figure>
 
-<h3 id="3-查询在-SC-表存在成绩的学生信息"><a href="#3-查询在-SC-表存在成绩的学生信息" class="headerlink" title="3 查询在 SC 表存在成绩的学生信息"></a>3 查询在 SC 表存在成绩的学生信息</h3><div class="note info">
+<h3 id="3-查询在SC表存在成绩的学生信息"><a href="#3-查询在SC表存在成绩的学生信息" class="headerlink" title="3 查询在SC表存在成绩的学生信息"></a>3 查询在SC表存在成绩的学生信息</h3><div class="note info">
             <h4 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h4><p>方法1：使用子查询先查询有分数的学生ID，再用IN操作符嵌套进Student表的查询。<br>方法2：使用联结组合两张表，由于SC表每个学生不止1个成绩，因此需要使用DISTINCT去重避免输出重复数据。</p>
           </div>
 

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme-color" content=#66ccff>
+  <title>SQL50题（21-30题） | 喵窝</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Inari">
+  <meta name="keywords" content="">
+  <meta name="description" content="正在施工中…">
+  <script id="hexo-configurations">
+  var CONFIG = {
+    root: '/',
+    theme: 'lx',
+    version: '0.4.4',
+    localsearch:{
+      "enable": false,
+      "trigger": "auto",
+      "top_n_per_article": 1,
+      "unescape": false,
+      "preload": false
+      },
+    path: 'null'
+  };
+</script>
+
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/theme-lx@0.4.4/source/dist/css/main.min.css">
+  
+  <style type="text/css">
+    pre,
+    code {
+      font-family: 'Fira Code', monospace;
+    }
+    html {
+      font-family: sans-serif;
+    }
+    body {
+      font-family: sans-serif;
+    }
+    h1, h2, h3, h4, h5, figure {
+      font-family: sans-serif;
+    }
+    .menu-container{
+      font-family: sans-serif;
+    }
+  </style>
+
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/theme-lx@0.4.4/source/dist/js/jquery.jside.menu.min.js"></script>
+	<script>
+	$(document).ready(function(){
+	$(".menu-container").jSideMenu({
+	    jSidePosition: "position-right",
+	    jSideSticky: true,
+	    jSideSkin: "",
+	     });
+	}); 
+	</script>
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira Code:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body>
+<div class="single">
+
+<div id="page">
+<div class="header">
+  <div id="lx-aside" style="background-image: url(/images/post_cover.jpg)" data-stellar-background-ratio="0.5">
+    <div class="overlay">
+      
+      <div class="page-title">
+        <div class="avatar"><a href="/"><img src="/images/avatar.jpg" alt="Inari"></a></div>
+        <span>2022-10-21</span>
+        <h2>SQL50题（21-30题）</h2>
+        
+        <div class="social-links">
+    <a href="https://psnine.com/psnid/lchiot" target="_blank" title="social-link"><i class="fa fa-gamepad fa-fw"></i></a>
+</div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="lx-main-content">
+  <div class="lx-post">
+    <div class="lx-entry padding">
+      <div>
+        <img src="/2022/10/21/SQL50%E9%A2%98%EF%BC%8821-30%E9%A2%98%EF%BC%89/%E9%85%8D%E5%9B%BE.jpg" class="" title="From Blue Achieve">
+<span id="more"></span> 
+
+<h2 id="21-到-30-题"><a href="#21-到-30-题" class="headerlink" title="21 到 30 题"></a>21 到 30 题</h2><h3 id="21-查询男生、女生人数"><a href="#21-查询男生、女生人数" class="headerlink" title="21 查询男生、女生人数"></a>21 查询男生、女生人数</h3><div class="note info">
+            <h4 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h4><p>直接用GROUP BY对Ssex分组后Count学生ID的数量即可。</p>
+          </div>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT Ssex, COUNT(SId) FROM Student </span><br><span class="line">GROUP BY Ssex;</span><br></pre></td></tr></table></figure>
+
+<h3 id="22-查询名字中含有「风」字的学生信息"><a href="#22-查询名字中含有「风」字的学生信息" class="headerlink" title="22 查询名字中含有「风」字的学生信息"></a>22 查询名字中含有「风」字的学生信息</h3><div class="note info">
+            <h4 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h4><p>使用LIKE在风字前后各加一个%通配符。</p>
+          </div>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM Student </span><br><span class="line">WHERE Sname LIKE &#x27;%风%&#x27;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="23-查询同名同性学生名单，并统计同名人数"><a href="#23-查询同名同性学生名单，并统计同名人数" class="headerlink" title="23 查询同名同性学生名单，并统计同名人数"></a>23 查询同名同性学生名单，并统计同名人数</h3><div class="note info">
+            <h4 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h4><p>按学生的姓名分组，求和之后用HAVING过滤出同名人数大于1的姓名。</p>
+          </div>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT Sname, COUNT(SId) FROM Student </span><br><span class="line">GROUP BY Sname HAVING COUNT(SId) &gt; 1;</span><br></pre></td></tr></table></figure>
+<h3 id="24-查询1990年出生的学生名单"><a href="#24-查询1990年出生的学生名单" class="headerlink" title="24 查询1990年出生的学生名单"></a>24 查询1990年出生的学生名单</h3><div class="note info">
+            <h4 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h4><p>使用YEAR函数提取出Sage字段中的年份，用WHERE进行过滤。</p>
+          </div>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM Student </span><br><span class="line">WHERE YEAR(Sage) = 1990;</span><br></pre></td></tr></table></figure>
+
+<h3 id="25-查询每门课程的平均成绩，结果按平均成绩降序排列，平均成绩相同时，按课程编号升序排列"><a href="#25-查询每门课程的平均成绩，结果按平均成绩降序排列，平均成绩相同时，按课程编号升序排列" class="headerlink" title="25 查询每门课程的平均成绩，结果按平均成绩降序排列，平均成绩相同时，按课程编号升序排列"></a>25 查询每门课程的平均成绩，结果按平均成绩降序排列，平均成绩相同时，按课程编号升序排列</h3><div class="note info">
+            <h4 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h4><p>两层排序，AVG(score)用DESC降序，升序用ASC，因为不写默认升序，所以可以不写。</p>
+          </div>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT CId, AVG(score) FROM SC GROUP BY CId</span><br><span class="line">ORDER BY AVG(score) DESC, CId;</span><br></pre></td></tr></table></figure>
+
+<h3 id="26-查询平均成绩大于等于85的所有学生的学号、姓名和平均成绩"><a href="#26-查询平均成绩大于等于85的所有学生的学号、姓名和平均成绩" class="headerlink" title="26 查询平均成绩大于等于85的所有学生的学号、姓名和平均成绩"></a>26 查询平均成绩大于等于85的所有学生的学号、姓名和平均成绩</h3><div class="note info">
+            <h4 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h4><p>需要学生姓名，所以等值联结SC和Student两张表。<br>平均成绩依然是用GROUP BY按学生ID分组后使用AVG函数统计。</p>
+          </div>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT SC.SId, Sname, AVG(score) FROM SC, Student</span><br><span class="line">WHERE SC.SId = Student.SId</span><br><span class="line">GROUP BY SId</span><br><span class="line">HAVING AVG(score) &gt;= 85;</span><br></pre></td></tr></table></figure>
+
+<h3 id="27-查询课程名称为「数学」，且分数低于60的学生姓名和分数"><a href="#27-查询课程名称为「数学」，且分数低于60的学生姓名和分数" class="headerlink" title="27 查询课程名称为「数学」，且分数低于60的学生姓名和分数"></a>27 查询课程名称为「数学」，且分数低于60的学生姓名和分数</h3><div class="note info">
+            <h4 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h4><p>需要学生姓名，分数以及课程名称的信息所以涉及到三张表格的联结。<br>代码使用等值联结，当然本题也可以用子查询和INNER JOIN完成。</p>
+          </div>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SELECT Sname, Cname, score FROM SC, Student, Course</span><br><span class="line">WHERE SC.SId = Student.SId</span><br><span class="line">AND SC.CId = Course.CId</span><br><span class="line">AND Cname = &#x27;数学&#x27;</span><br><span class="line">AND score &lt; 60;</span><br></pre></td></tr></table></figure>
+
+<h3 id="28-查询所有学生的课程及分数情况（存在学生没成绩，没选课的情况）"><a href="#28-查询所有学生的课程及分数情况（存在学生没成绩，没选课的情况）" class="headerlink" title="28 查询所有学生的课程及分数情况（存在学生没成绩，没选课的情况）"></a>28 查询所有学生的课程及分数情况（存在学生没成绩，没选课的情况）</h3><div class="note info">
+            <h4 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h4><p>即使没有成绩也要把学生ID和姓名显示出来，所以使用LEFT JOIN保留Student表格的信息。<br>这样没有成绩的学生在联结后会显示为NULL，满足题目的要求。</p>
+          </div>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT Student.SId, Sname, CID, score FROM Student</span><br><span class="line">LEFT OUTER JOIN SC ON Student.SId = SC.SId;</span><br></pre></td></tr></table></figure>
+
+<h3 id="29-查询任何一门课程成绩在70分以上的姓名、课程名称和分数"><a href="#29-查询任何一门课程成绩在70分以上的姓名、课程名称和分数" class="headerlink" title="29 查询任何一门课程成绩在70分以上的姓名、课程名称和分数"></a>29 查询任何一门课程成绩在70分以上的姓名、课程名称和分数</h3><div class="note info">
+            <h4 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h4><p>涉及到学生姓名，成绩及课程名称所以需要联结三张表。<br>代码中使用的是INNER JOIN，当然也可以使用语法更简单的等值联结。</p>
+          </div>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT Sname, Cname, score FROM SC</span><br><span class="line">INNER JOIN Student ON SC.SId = Student.SId</span><br><span class="line">INNER JOIN Course ON SC.CId =Course.CId</span><br><span class="line">WHERE score &gt; 70;</span><br></pre></td></tr></table></figure>
+
+<h3 id="30-查询不及格的课程"><a href="#30-查询不及格的课程" class="headerlink" title="30 查询不及格的课程"></a>30 查询不及格的课程</h3><div class="note info">
+            <h4 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h4><p>题干比较含糊没说明白需要哪些具体的信息，此处仅查询了有不及格学生的课程ID。<br>使用了DISTINCT进行了去重操作。</p>
+          </div>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT DISTINCT CId FROM SC </span><br><span class="line">WHERE score &lt; 60;</span><br></pre></td></tr></table></figure>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+<div class="lx-navigation">
+	<div class="lx-cover next lx-cover-sm" style="background-image: url(/images/footer-l.jpg)">
+		<div class="overlay"></div>
+		<a class="copy" href="#">
+			<div class="display-t">
+				<div class="display-tc">
+					<div>
+						<span>Next</span>
+						<h3>没有更新的文章</h3>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
+        <div class="lx-cover prev lx-cover-sm" style="background-image: url(/images/footer-r.jpg)">
+		<div class="overlay"></div>
+		<a class="copy" href="/2022/10/19/SQL50%E9%A2%98%EF%BC%8811-20%E9%A2%98%EF%BC%89/">
+			<div class="display-t">
+				<div class="display-tc">
+					<div>
+						<span>Prev</span>
+						<h3>SQL50题（...</h3>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
+</div>
+
+</div>
+
+<footer>
+  <div>
+  Copyright &copy; 2022.<a href="/">喵窝</a><br>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme <a href="https://lx.js.org" target="_blank">Lx</a><br>持续优化中…
+  </div>
+</footer>
+
+</div>
+
+<button class="hamburger hamburger--arrow-r" type="button" title="menu">
+    <div class="hamburger-box">
+      <div class="hamburger-inner"></div>
+    </div>
+</button>
+<div class="menu visibility">
+  <div class="menu-head">
+    <span class="layer">
+      <div class="col">
+        <div class="row for-pic">
+          <div class="profile-pic">
+            <a href="/"><img src="/images/avatar.jpg" alt="Inari"/></a>
+          </div>
+        </div>
+        <div class="row for-name">
+          <p>Inari</p>
+          <span class="tagline">人生到头来就是妥协。</span>
+        </div>
+      </div>
+    </span>
+  </div>
+  <nav class="menu-container">
+  <ul class="menu-items">
+    <li><a href="/"><i class="fa fa-home fa-fw"></i>首页</a></li>
+    <li><a href="/archives/"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+    <li class="has-sub"><span class="dropdown-heading">
+      <i class="fa fa-th-list fa-fw"></i>分类</span>
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B9%A6%E7%B1%8D/">书籍</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9D%82%E8%B0%88/">杂谈</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%B8%B8%E6%88%8F/">游戏</a></li></ul>
+    </li>
+    <li class="has-sub"><span class="dropdown-heading">
+      <i class="fa fa-bookmark fa-fw"></i>页面</span>
+        <ul>
+          <li><a href="/about/">关于</a></li>
+        </ul>
+    </li>
+    
+  </ul>
+  </nav>
+</div>
+
+<div class="gototop js-top">
+  <a href="#" class="js-gotop"><i class="fa fa-arrow-up"></i></a>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/theme-lx@0.4.4/source/dist/js/jquery.easing.min.js"></script>
+<script>
+(function () {
+	"use strict";
+	var goToTop = function() {
+		$(".js-gotop").on("click", function(event){
+			event.preventDefault();
+			$("html, body").animate({
+				scrollTop: $("html").offset().top
+			}, 500, "easeInOutExpo");
+			return false;
+		});
+		$(window).scroll(function(){
+			var $win = $(window);
+			if ($win.scrollTop() > 200) {
+				$(".js-top").addClass("active");
+			} else {
+				$(".js-top").removeClass("active");
+			}
+		});
+	};
+	$(function(){
+		goToTop();
+	});
+}());
+</script>
+
+
+</body>
+</html>
