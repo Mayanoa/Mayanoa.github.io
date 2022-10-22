@@ -117,12 +117,46 @@
 
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">SELECT SC.CId, COUNT(SId), Cname, MAX(score), MIN(score), AVG(Score),</span><br><span class="line">SUM(CASE WHEN score &gt;=60 THEN 1 ELSE 0 END) / COUNT(score) AS &#x27;及格率&#x27;,</span><br><span class="line">SUM(CASE WHEN score &gt;=70 AND score &lt;80 THEN 1 ELSE 0 END) / COUNT(score) AS &#x27;中等率&#x27;,</span><br><span class="line">SUM(CASE WHEN score &gt;=80 AND score &lt;90 THEN 1 ELSE 0 END) / COUNT(score) AS &#x27;优良率&#x27;,</span><br><span class="line">SUM(CASE WHEN score &gt;=90 THEN 1 ELSE 0 END) / COUNT(score) AS &#x27;优秀率&#x27;</span><br><span class="line">FROM SC INNER JOIN Course ON SC.CId = Course.CId</span><br><span class="line">GROUP BY SC.CId</span><br><span class="line">ORDER BY COUNT(SId) DESC, CId;</span><br></pre></td></tr></table></figure>
 
+<h3 id="15-0-按各科成绩进行排序，并显示排名，Score-重复时保留名次空缺"><a href="#15-0-按各科成绩进行排序，并显示排名，Score-重复时保留名次空缺" class="headerlink" title="15-0 按各科成绩进行排序，并显示排名，Score 重复时保留名次空缺"></a>15-0 按各科成绩进行排序，并显示排名，Score 重复时保留名次空缺</h3><div class="note danger">
+            <h4 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h4><p>难题，本题使用窗口函数。<br>窗口函数有三种：RANK()， DENSE_RANK()以及ROW_NUMBER()。<br>使用的语法都一致：RANK() OVER(PARTITION BY 列1 ORDER BY 列2)<br>PARTITION可以看作分组，即将对应列中相同的数据归为一组进行排序。<br>ORDER BY可以看作排序依据，即排序将按照对应列中的数值来进行升降排序。<br>三个函数的区别在于：<br>ROW_NUMBER为不重复排序，在两行数据数值相同时，也会给出1、2、3、4这样连续的排序。<br>DENSE_RANK为连续排序，在两行数据相同时会给出相同排序，排序为1、2、2、3这样的效果。<br>RANK为跳跃排序，同样是数据相同时给相同排序，但排序效果为1、2、2、4。<br>本题要求保留名次空缺，要求上是DENSE_RANK的模式，直接用函数就行。</p>
+          </div>  
 
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT CId, SC.SId, Sname,</span><br><span class="line">DENSE_RANK() OVER (PARTITION BY CId ORDER BY SCORE DESC) AS 排名</span><br><span class="line">FROM SC INNER JOIN Student</span><br><span class="line">ON SC.SId = Student.SId;</span><br></pre></td></tr></table></figure>
 
-<h3 id="15-0-按各科成绩进行排序，并显示排名，Score-重复时保留名次空缺"><a href="#15-0-按各科成绩进行排序，并显示排名，Score-重复时保留名次空缺" class="headerlink" title="15-0 按各科成绩进行排序，并显示排名，Score 重复时保留名次空缺"></a>15-0 按各科成绩进行排序，并显示排名，Score 重复时保留名次空缺</h3><h3 id="15-1-按各科成绩进行排序，并显示排名，Score-重复时合并名次"><a href="#15-1-按各科成绩进行排序，并显示排名，Score-重复时合并名次" class="headerlink" title="15-1 按各科成绩进行排序，并显示排名，Score 重复时合并名次"></a>15-1 按各科成绩进行排序，并显示排名，Score 重复时合并名次</h3><h3 id="16-0-查询学生的总成绩，并进行排名，总分重复时保留名次空缺"><a href="#16-0-查询学生的总成绩，并进行排名，总分重复时保留名次空缺" class="headerlink" title="16-0 查询学生的总成绩，并进行排名，总分重复时保留名次空缺"></a>16-0 查询学生的总成绩，并进行排名，总分重复时保留名次空缺</h3><h3 id="16-1-查询学生的总成绩，并进行排名，总分重复时不保留名次空缺"><a href="#16-1-查询学生的总成绩，并进行排名，总分重复时不保留名次空缺" class="headerlink" title="16-1 查询学生的总成绩，并进行排名，总分重复时不保留名次空缺"></a>16-1 查询学生的总成绩，并进行排名，总分重复时不保留名次空缺</h3><h3 id="17-统计各科成绩各分数段人数："><a href="#17-统计各科成绩各分数段人数：" class="headerlink" title="17 统计各科成绩各分数段人数："></a>17 统计各科成绩各分数段人数：</h3><div class="note success">
+<h3 id="15-1-按各科成绩进行排序，并显示排名，Score-重复时合并名次"><a href="#15-1-按各科成绩进行排序，并显示排名，Score-重复时合并名次" class="headerlink" title="15-1 按各科成绩进行排序，并显示排名，Score 重复时合并名次"></a>15-1 按各科成绩进行排序，并显示排名，Score 重复时合并名次</h3><div class="note info">
+            <h4 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h4><p>参考上一题的说明，本题要求合并名词，把DENSE_RANK改成RANK就可以。</p>
+          </div>  
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT CId, SC.SId, Sname,</span><br><span class="line">Rank() OVER (PARTITION BY CId ORDER BY SCORE DESC) AS 排名</span><br><span class="line">FROM SC INNER JOIN Student</span><br><span class="line">ON SC.SId = Student.SId;</span><br></pre></td></tr></table></figure>
+<h3 id="16-0-查询学生的总成绩，并进行排名，总分重复时保留名次空缺"><a href="#16-0-查询学生的总成绩，并进行排名，总分重复时保留名次空缺" class="headerlink" title="16-0 查询学生的总成绩，并进行排名，总分重复时保留名次空缺"></a>16-0 查询学生的总成绩，并进行排名，总分重复时保留名次空缺</h3><div class="note info">
+            <h4 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h4><p>组合GROUP和前两次使用的窗口函数（DENSE_RANK）可以轻松达成目的。<br>因为GROUP BY默认去重了，所以此处可以省略函数中PARTITION BY的语句。</p>
+          </div>  
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT SId, SUM(score) AS &#x27;总成绩&#x27;,</span><br><span class="line">DENSE_RANK() OVER (ORDER BY SUM(score) DESC) AS &#x27;名次&#x27;</span><br><span class="line">FROM SC GROUP BY SId;</span><br></pre></td></tr></table></figure>
+
+<h3 id="16-1-查询学生的总成绩，并进行排名，总分重复时不保留名次空缺"><a href="#16-1-查询学生的总成绩，并进行排名，总分重复时不保留名次空缺" class="headerlink" title="16-1 查询学生的总成绩，并进行排名，总分重复时不保留名次空缺"></a>16-1 查询学生的总成绩，并进行排名，总分重复时不保留名次空缺</h3><div class="note info">
+            <h4 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h4><p>和15-1一样，把DENSE_RANK换成RANK就行。</p>
+          </div>  
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT SId, SUM(score) AS &#x27;总成绩&#x27;,</span><br><span class="line">RANK() OVER (ORDER BY SUM(score) DESC) AS &#x27;名次&#x27;</span><br><span class="line">FROM SC GROUP BY SId;</span><br></pre></td></tr></table></figure>
+
+<h3 id="17-统计各科成绩各分数段人数："><a href="#17-统计各科成绩各分数段人数：" class="headerlink" title="17 统计各科成绩各分数段人数："></a>17 统计各科成绩各分数段人数：</h3><div class="note success">
             <h4 id="要求"><a href="#要求" class="headerlink" title="要求"></a>要求</h4><p>需要统计课程编号，课程名称，[100-85]，[85-70]，[70-60]，[60-0] 及所占百分比</p>
           </div>  
-<h3 id="18-查询各科成绩前三名的记录"><a href="#18-查询各科成绩前三名的记录" class="headerlink" title="18 查询各科成绩前三名的记录"></a>18 查询各科成绩前三名的记录</h3><h3 id="19-查询每门课程被选修的学生数"><a href="#19-查询每门课程被选修的学生数" class="headerlink" title="19 查询每门课程被选修的学生数"></a>19 查询每门课程被选修的学生数</h3><div class="note info">
+
+<div class="note info">
+            <h4 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h4><p>和14题一样用CASE WHEN汇总各分段的学生人数，用计算字段来算出所占百分比。</p>
+          </div>  
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">SELECT SC.CId, Cname,</span><br><span class="line">SUM(CASE WHEN score &gt;= 85 THEN 1 ELSE 0 END) / COUNT(SId) AS &#x27;85-100&#x27;,</span><br><span class="line">SUM(CASE WHEN score &gt;= 70 AND score &lt; 85 THEN 1 ELSE 0 END) / COUNT(SId) AS &#x27;70-85&#x27;,</span><br><span class="line">SUM(CASE WHEN score &gt;= 60 AND score &lt; 70 THEN 1 ELSE 0 END) / COUNT(SId) AS &#x27;60-70&#x27;,</span><br><span class="line">SUM(CASE WHEN score &lt; 60 THEN 1 ELSE 0 END) / COUNT(SId) AS &#x27;0-60&#x27;</span><br><span class="line">FROM SC </span><br><span class="line">INNER JOIN Course ON SC.CId =Course.CId</span><br><span class="line">GROUP BY CId</span><br></pre></td></tr></table></figure>
+
+<h3 id="18-查询各科成绩前三名的记录"><a href="#18-查询各科成绩前三名的记录" class="headerlink" title="18 查询各科成绩前三名的记录"></a>18 查询各科成绩前三名的记录</h3><div class="note danger">
+            <h4 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h4><p>难题，本题涉及到窗口函数的筛选。<br>需要注意的点是在一个SELECT里用窗口函数后，不能直接用WHERE对排序结果进行筛选。<br>原因在于窗口函数的排序原理是在WHERE过滤出需要的数据之后再进行排序。<br>所以在WHERE里过滤排序结果会直接报错。<br>解决方法是将使用窗口函数的查询结果命名为一张新的表格（代码里为A），嵌套一层SELECT对新表格A查询。<br>这样查询出的排名字段（C_RANK）只是一个普通字段而不是窗口函数作用的结果。<br>之后再使用WHERE过滤出名次小于3即前三名的数据记录。</p>
+          </div>  
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM</span><br><span class="line">(SELECT *, RANK() OVER(PARTITION BY CId ORDER BY score DESC) AS C_RANK</span><br><span class="line">FROM SC) AS A</span><br><span class="line">WHERE C_RANK &lt;= 3;</span><br></pre></td></tr></table></figure>
+
+<h3 id="19-查询每门课程被选修的学生数"><a href="#19-查询每门课程被选修的学生数" class="headerlink" title="19 查询每门课程被选修的学生数"></a>19 查询每门课程被选修的学生数</h3><div class="note info">
             <h4 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h4><p>GROUP BY将CId分组后用COUNT统计即可。</p>
           </div>  
 
@@ -155,7 +189,7 @@
 	</div>
         <div class="lx-cover prev lx-cover-sm" style="background-image: url(/images/footer-r.jpg)">
 		<div class="overlay"></div>
-		<a class="copy" href="/2022/10/19/SQL50%E9%A2%98%EF%BC%881-10%E9%A2%98%EF%BC%89/">
+		<a class="copy" href="/2022/10/19/SQL50%E9%A2%98%EF%BC%8801-10%E9%A2%98%EF%BC%89/">
 			<div class="display-t">
 				<div class="display-tc">
 					<div>
