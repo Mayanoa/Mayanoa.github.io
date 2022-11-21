@@ -4,7 +4,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="theme-color" content=#66ccff>
-  <title>归档 | 喵窝</title>
+  <title>C#学习笔记（1） | 喵窝</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="author" content="Inari">
   <meta name="keywords" content="">
@@ -63,18 +63,18 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
 <meta name="generator" content="Hexo 6.3.0"></head>
 <body>
+<div class="single">
 
 <div id="page">
-
 <div class="header">
-  <div id="lx-aside" style="background-image: url(/images/cover.jpg)">
+  <div id="lx-aside" style="background-image: url(/images/post_cover.jpg)" data-stellar-background-ratio="0.5">
     <div class="overlay">
       
-      <div class="featured">
+      <div class="page-title">
         <div class="avatar"><a href="/"><img src="/images/avatar.jpg" alt="Inari"></a></div>
-        <span>Inari</span>
-        <h1>喵窝</h1>
-        <span>我也是加把劲骑士</span>
+        <span>2022-11-21</span>
+        <h2>C#学习笔记（1）</h2>
+        
         <div class="social-links">
     <a href="https://psnine.com/psnid/lchiot" target="_blank" title="social-link"><i class="fa fa-gamepad fa-fw"></i></a>
 </div>
@@ -84,22 +84,47 @@
 </div>
 <div id="lx-main-content">
   <div class="lx-post">
-  <h2 class="pagehead">文章归档</h2>
-    <div class="lx-entry padding"><div>
-    <span class="lx-post-detail">2022-10-12</span>
-    <h2 class="title"><a href="/2022/10/12/%E6%B8%B8%E6%88%8F%E5%8E%86%E7%A8%8B/">游戏历程</a></h2>
-    <p></p></div></div><div class="lx-entry padding"><div>
-    <span class="lx-post-detail">2022-10-12</span>
-    <h2 class="title"><a href="/2022/10/12/%E5%BB%BA%E7%AB%99%E8%AE%B0%E5%BD%95/">版本记录</a></h2>
-    <p></p></div></div><div class="lx-entry padding"><div>
-    <span class="lx-post-detail">2022-10-11</span>
-    <h2 class="title"><a href="/2022/10/11/hello-world/">Hello World</a></h2>
-    <p></p></div></div><div class="lx-entry padding"><div>
-    <span class="lx-post-detail">2022-01-01</span>
-    <h2 class="title"><a href="/2022/01/01/%E7%86%AC%E5%A4%9C%E5%8F%AF%E8%A7%86%E5%8C%962022/">熬夜可视化（2023）【草稿】</a></h2>
-    <p></p></div></div>
-<div id="pagination">
-  <a class="extend prev" rel="prev" href="/archives/2022/"></a><a class="page-number" href="/archives/2022/">1</a><span class="page-number current">2</span>
+    <div class="lx-entry padding">
+      <div>
+        <h3 id="008-程序的基本语法-x2F-009-基本语法总结-x2F-010-输出语句练习题"><a href="#008-程序的基本语法-x2F-009-基本语法总结-x2F-010-输出语句练习题" class="headerlink" title="008-程序的基本语法 &#x2F; 009-基本语法总结 &#x2F; 010-输出语句练习题"></a>008-程序的基本语法 &#x2F; 009-基本语法总结 &#x2F; 010-输出语句练习题</h3><h4 id="语法：控制台输出文本"><a href="#语法：控制台输出文本" class="headerlink" title="语法：控制台输出文本"></a><strong>语法：控制台输出文本</strong></h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Console.WriteLine(&quot;Hello World&quot;);  //输出括号内的文本，输出完毕后默认换行。</span><br><span class="line">Console.Write(&quot;Hello &quot;); //输出括号内的文本，输出完毕后默认不换行。</span><br><span class="line">Console.Write(&quot;World&quot;); //与上一条代码组合后会输出一行完整的Hello World。</span><br></pre></td></tr></table></figure>
+<h4 id="语法：转义符"><a href="#语法：转义符" class="headerlink" title="语法：转义符"></a><strong>语法：转义符</strong></h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Console.WriteLine(&quot;H\tello \nWorld&quot;);  </span><br><span class="line">Console.WriteLine(&quot;\\\&quot;&quot;) //会生成\”的字符。</span><br><span class="line">//转义符\与n连用后代表换行，\与t连用后代表tab制表符（一般是四个空格）。</span><br><span class="line">//转义符\与\连用后代表一个非转义作用的\字符。</span><br><span class="line">//转义符与“连用后代表一个引号文本字符，不会被识别为字符串的标识。</span><br></pre></td></tr></table></figure>
+<h4 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a><strong>快捷键</strong></h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">注释代码：Ctrl+K → Ctrl+C</span><br><span class="line">解除注释：Ctrl+K → Ctrl+U</span><br><span class="line">运行代码：F5</span><br></pre></td></tr></table></figure>
+
+<h4 id="特别注意"><a href="#特别注意" class="headerlink" title="特别注意"></a><strong>特别注意</strong></h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">//多行注释时不能像 / *我是注释 * /这样，不能在*和/符号之间加空格。</span><br></pre></td></tr></table></figure>
+
+      </div>
+    </div>
+  </div>
+</div>
+<div class="lx-navigation">
+	<div class="lx-cover next lx-cover-sm" style="background-image: url(/images/footer-l.jpg)">
+		<div class="overlay"></div>
+		<a class="copy" href="#">
+			<div class="display-t">
+				<div class="display-tc">
+					<div>
+						<span>Next</span>
+						<h3>没有更新的文章</h3>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
+        <div class="lx-cover prev lx-cover-sm" style="background-image: url(/images/footer-r.jpg)">
+		<div class="overlay"></div>
+		<a class="copy" href="/2022/11/19/2022%E5%B9%B4%E5%BA%A6%E6%B8%B8%E6%88%8F%E6%80%BB%E7%BB%93/">
+			<div class="display-t">
+				<div class="display-tc">
+					<div>
+						<span>Prev</span>
+						<h3>年度游戏总结（...</h3>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
+</div>
+
 </div>
 
 <footer>
@@ -108,8 +133,6 @@
   </div>
 </footer>
 
-  </div>
-</div>
 </div>
 
 <button class="hamburger hamburger--arrow-r" type="button" title="menu">
