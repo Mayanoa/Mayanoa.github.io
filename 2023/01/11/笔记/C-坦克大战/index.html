@@ -1,0 +1,639 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/Imgset/favicon.ico">
+  <link rel="icon" href="/Imgset/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Eureka">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="03-类型转换数据的强制转换123把a赋值给b时，如果b的数据类型更大，会自动转换。如果b的数据类型要比a小，需要使用强制转换，通过（数据类型）的方式转换。例如：a &#x3D; int(c)  类的强制转换1234Father f &#x3D; new Son();Son s &#x3D; (Son)f; &#x2F;&#x2F;把父类型的f强制转换为子类型。Son s &#x3D; f as Son; &#x2F;&#x2F;强制转换类时更常用的写法。注意必须把父类">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C#学习笔记-坦克大战">
+<meta property="og:url" content="http://example.com/2023/01/11/%E7%AC%94%E8%AE%B0/C-%E5%9D%A6%E5%85%8B%E5%A4%A7%E6%88%98/index.html">
+<meta property="og:site_name" content="Eureka的喵窝">
+<meta property="og:description" content="03-类型转换数据的强制转换123把a赋值给b时，如果b的数据类型更大，会自动转换。如果b的数据类型要比a小，需要使用强制转换，通过（数据类型）的方式转换。例如：a &#x3D; int(c)  类的强制转换1234Father f &#x3D; new Son();Son s &#x3D; (Son)f; &#x2F;&#x2F;把父类型的f强制转换为子类型。Son s &#x3D; f as Son; &#x2F;&#x2F;强制转换类时更常用的写法。注意必须把父类">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/Imgpost/%E7%AC%94%E8%AE%B0/C%E5%9D%A6%E5%85%8B%E5%A4%A7%E6%88%98cover.jpg">
+<meta property="article:published_time" content="2023-01-10T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-04-06T14:19:54.096Z">
+<meta property="article:author" content="Eureka">
+<meta property="article:tag" content="编程">
+<meta property="article:tag" content="C#">
+<meta property="article:tag" content="Unity">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/Imgpost/%E7%AC%94%E8%AE%B0/C%E5%9D%A6%E5%85%8B%E5%A4%A7%E6%88%98cover.jpg">
+  
+  
+  
+  <title>C#学习笔记-坦克大战 - Eureka的喵窝</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.4","typing":{"enable":false,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":false,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Eureka的喵窝</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-books"></i>
+                <span>档案</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/Archives/GameRecord/">
+                    
+                    <span>游戏历程</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/Archives/Anime&amp;NovelRecord/">
+                    
+                    <span>动画&小说历程</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/Archives/GuestBook/">
+                    
+                    <span>留言簿</span>
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/Imgpost/%E7%AC%94%E8%AE%B0/C%E5%9D%A6%E5%85%8B%E5%A4%A7%E6%88%98cover.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle">C#学习笔记-坦克大战</span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-01-11 00:00" pubdate>
+          2023年1月11日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          4.6k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          39 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">C#学习笔记-坦克大战</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <span id="more"></span> 
+
+<h3 id="03-类型转换"><a href="#03-类型转换" class="headerlink" title="03-类型转换"></a>03-类型转换</h3><h4 id="数据的强制转换"><a href="#数据的强制转换" class="headerlink" title="数据的强制转换"></a><strong>数据的强制转换</strong></h4><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs livecodeserver">把<span class="hljs-keyword">a</span>赋值给b时，如果b的数据类型更大，会自动转换。<br>如果b的数据类型要比<span class="hljs-keyword">a</span>小，需要使用强制转换，通过（数据类型）的方式转换。<br>例如：<span class="hljs-keyword">a</span> = int(c)<br></code></pre></td></tr></table></figure>
+
+<h4 id="类的强制转换"><a href="#类的强制转换" class="headerlink" title="类的强制转换"></a><strong>类的强制转换</strong></h4><figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs abnf">Father f <span class="hljs-operator">=</span> new Son()<span class="hljs-comment">;</span><br>Son s <span class="hljs-operator">=</span> (Son)f<span class="hljs-comment">; //把父类型的f强制转换为子类型。</span><br>Son s <span class="hljs-operator">=</span> f as Son<span class="hljs-comment">; //强制转换类时更常用的写法。</span><br>注意必须把父类声明为子类时才能强制转换，声明完全父类的类是不能强制转换成子类的。<br></code></pre></td></tr></table></figure>
+
+<h3 id="04-多线程：线程的创建"><a href="#04-多线程：线程的创建" class="headerlink" title="04-多线程：线程的创建"></a>04-多线程：线程的创建</h3><h4 id="线程的创建"><a href="#线程的创建" class="headerlink" title="线程的创建"></a><strong>线程的创建</strong></h4><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs gradle"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> ChildThreadMethod <span class="hljs-comment">//创建一个名称为childThread的子线程方法。</span><br>&#123;<br>console.<span class="hljs-keyword">writeline</span>(<span class="hljs-string">&quot;childthread running&quot;</span>);<br>&#125;<br><br>Thread childThread = <span class="hljs-keyword">new</span> Thread(<span class="hljs-keyword">new</span> ThreadStart(ChildThreadMethod));<br> <span class="hljs-comment">//在main函数里声明一个名为start的子线程。</span><br>childThread.Start(); <span class="hljs-comment">//启动线程。</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="05-多线程：线程的同步执行"><a href="#05-多线程：线程的同步执行" class="headerlink" title="05-多线程：线程的同步执行"></a>05-多线程：线程的同步执行</h3><h4 id="线程的暂停"><a href="#线程的暂停" class="headerlink" title="线程的暂停"></a><strong>线程的暂停</strong></h4><figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs arduino">thread.<span class="hljs-built_in">sleep</span>(<span class="hljs-number">1</span>); <span class="hljs-comment">//令线程暂停1毫秒。</span><br>childthrad.<span class="hljs-built_in">abort</span>(); <span class="hljs-comment">//强制终止子线程。</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="08-设置窗体的生成位置"><a href="#08-设置窗体的生成位置" class="headerlink" title="08-设置窗体的生成位置"></a>08-设置窗体的生成位置</h3><h4 id="设置窗体的生成位置"><a href="#设置窗体的生成位置" class="headerlink" title="设置窗体的生成位置"></a><strong>设置窗体的生成位置</strong></h4><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">this</span>.StartPosition = FormStartPosition.CenterScreen; <br><span class="hljs-comment">//调用startposition方法设置窗体的生成位置。</span><br><span class="hljs-keyword">this</span>.StartPosition = FormStartPosition.Manual;<br><span class="hljs-keyword">this</span>.Location = new Point(<span class="hljs-number">200</span>, <span class="hljs-number">500</span>);<br><span class="hljs-comment">//人工设置窗体的生成坐标，以屏幕左上角为原点，像素计量。</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="09-如何绘制直线和字符串"><a href="#09-如何绘制直线和字符串" class="headerlink" title="09-如何绘制直线和字符串"></a>09-如何绘制直线和字符串</h3><h4 id="绘制直线和字符串"><a href="#绘制直线和字符串" class="headerlink" title="绘制直线和字符串"></a><strong>绘制直线和字符串</strong></h4><figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs reasonml">Graphics g = this.<span class="hljs-constructor">CreateGraphics()</span>; <span class="hljs-comment">//声明一个绘制图形的画布。</span><br>Pen p = <span class="hljs-keyword">new</span> <span class="hljs-constructor">Pen(Color.Black)</span>; <span class="hljs-comment">//声明一个颜色为黑色的画笔。</span><br>g.<span class="hljs-constructor">DrawLine(<span class="hljs-params">p</span>, <span class="hljs-params">new</span> Point(0, 0)</span>, <span class="hljs-keyword">new</span> <span class="hljs-constructor">Point(100, 100)</span>); <span class="hljs-comment">//声明需要绘制一条直线并给出横线的起止坐标。</span><br><span class="hljs-comment">//注意图形的绘制需要放在paint事件下面而不是窗体程序的生成事件下面。</span><br>g.<span class="hljs-constructor">DrawString(<span class="hljs-string">&quot;A&quot;</span>, <span class="hljs-params">new</span> Font(<span class="hljs-string">&quot;Arial&quot;</span>, 20)</span>, <span class="hljs-keyword">new</span> <span class="hljs-constructor">SolidBrush(Color.Black)</span>, <span class="hljs-keyword">new</span> <span class="hljs-constructor">Point(100, 100)</span>);<br><span class="hljs-comment">//声明需要绘制一个字符串，分别需要给到字体、笔刷（粗细/颜色）和绘制左边。</span><br></code></pre></td></tr></table></figure>
+<h3 id="10-如何绘制图片"><a href="#10-如何绘制图片" class="headerlink" title="10-如何绘制图片"></a>10-如何绘制图片</h3><h4 id="绘制图片"><a href="#绘制图片" class="headerlink" title="绘制图片"></a><strong>绘制图片</strong></h4><figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs reasonml">Image image = Properties.Resources.Boss; <span class="hljs-comment">//调用properties命名空间下的resource资源。</span><br>Graphics g = this.<span class="hljs-constructor">CreateGraphics()</span>;<br>g.<span class="hljs-constructor">DrawImage(<span class="hljs-params">image</span>, <span class="hljs-params">new</span> Point(200, 200)</span>); <span class="hljs-comment">//绘制指定的图片。</span><br>Bitmap image2 = Properties.Resources.Star1; <span class="hljs-comment">//也可以用bitmap类型来接收图片资源。</span><br>image2.<span class="hljs-constructor">MakeTransparent(Color.Black)</span>; <span class="hljs-comment">//bitmap有maketransparent方法，作用是将某个颜色处理为透明。</span><br>g.<span class="hljs-constructor">DrawImage(<span class="hljs-params">image2</span>, 100, 100)</span>; <span class="hljs-comment">//坐标也可以直接用两个数字隔开来声明。</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="11-设计游戏高宽和标题"><a href="#11-设计游戏高宽和标题" class="headerlink" title="11-设计游戏高宽和标题"></a>11-设计游戏高宽和标题</h3><h4 id="设置游戏宽高和标题"><a href="#设置游戏宽高和标题" class="headerlink" title="设置游戏宽高和标题"></a><strong>设置游戏宽高和标题</strong></h4><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs applescript">可以在designer的代码下面修改窗体程序的高度宽度以及标题。<br>高度与宽度：ClientSize<br>窗体标题：<span class="hljs-built_in">text</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="12-开发游戏框架"><a href="#12-开发游戏框架" class="headerlink" title="12-开发游戏框架"></a>12-开发游戏框架</h3><h4 id="设计游戏的基本框架"><a href="#设计游戏的基本框架" class="headerlink" title="设计游戏的基本框架"></a><strong>设计游戏的基本框架</strong></h4><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">private</span> Thread t;<br>t = <span class="hljs-keyword">new</span> Thread(<span class="hljs-keyword">new</span> ThreadStart(GameMainThread)); <span class="hljs-comment">//在Main方法中声明GameMainThread类型的线程。</span><br>t.Start(); <span class="hljs-comment">//开启t线程。</span><br><br><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">GameMainThread</span>() <span class="hljs-comment">//设置GameMainThread类型线程的命名逻辑。</span></span><br>&#123;<br>GameFrameWork.Start(); <span class="hljs-comment">//线程启动后，运行GameFrameWork类中的start方法。</span><br><span class="hljs-built_in">int</span> sleeptime = <span class="hljs-number">1000</span> / <span class="hljs-number">60</span>; <span class="hljs-comment">//设定一个游戏刷新的帧率。</span><br><span class="hljs-keyword">while</span> (<span class="hljs-literal">true</span>)<br>&#123;<br>GameFrameWork.Update(); <span class="hljs-comment">//设计一个死循环，持续运行update刷新方法。</span><br>Thread.Sleep(sleeptime); <span class="hljs-comment">//每运行一次update以后程序休眠帧率时间，保证程序正常运行。</span><br>&#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Form1_FormClosed</span>(<span class="hljs-params"><span class="hljs-built_in">object</span> sender, FormClosedEventArgs e</span>)</span><br>&#123;<br>t.Abort(); <span class="hljs-comment">//设置一个关闭程序窗体的事件，在关闭窗体后，终止t线程的运行，完全终止程序。</span><br>&#125;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title">GameFrameWork</span> <span class="hljs-comment">//声明一格GameFrameWork名称的框架，包含游戏开始和持续刷新的两个人方法。</span><br>&#123;<br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Start</span>()</span><br>&#123;<br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Update</span>()</span><br>&#123;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="13-分析类的结构和绘制背景图"><a href="#13-分析类的结构和绘制背景图" class="headerlink" title="13-分析类的结构和绘制背景图"></a>13-分析类的结构和绘制背景图</h3><h4 id="绘制背景图"><a href="#绘制背景图" class="headerlink" title="绘制背景图"></a><strong>绘制背景图</strong></h4><figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs abnf">private Graphics g<span class="hljs-comment">;</span><br><span class="hljs-attribute">g</span> <span class="hljs-operator">=</span> this.CreateGraphics()<span class="hljs-comment">;</span><br>GameFrameWork.g <span class="hljs-operator">=</span> g<span class="hljs-comment">;</span><br>GameFrameWork.g.Clear(Color.Black)<span class="hljs-comment">; //clear方法是将整个画布涂成某个颜色。</span><br><br>class GameFrameWork<br>&#123;<br>public static Graphics g<span class="hljs-comment">; //在GameFrameWork里面声明一个名称为g的画布。</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="14-编程设计好的类的代码"><a href="#14-编程设计好的类的代码" class="headerlink" title="14-编程设计好的类的代码"></a>14-编程设计好的类的代码</h3><h4 id="父类：GameObject"><a href="#父类：GameObject" class="headerlink" title="父类：GameObject"></a><strong>父类：GameObject</strong></h4><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">abstract</span> <span class="hljs-keyword">class</span> <span class="hljs-title">GameObject</span> <span class="hljs-comment">//声明抽象父类GameObject。</span><br>&#123;<br><span class="hljs-keyword">public</span> <span class="hljs-built_in">int</span> X &#123;<span class="hljs-keyword">get</span>;<span class="hljs-keyword">set</span>;&#125;<br><span class="hljs-keyword">public</span> <span class="hljs-built_in">int</span> Y &#123;<span class="hljs-keyword">get</span>;<span class="hljs-keyword">set</span>;&#125; <span class="hljs-comment">//提供设置坐标的方法。</span><br><span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">abstract</span> Image <span class="hljs-title">GetImage</span>()</span>; <br><span class="hljs-comment">//声明获取自身图形的方法，由于获取不到图片，定义为抽象方法。</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">DrawSelf</span>() <span class="hljs-comment">//声明绘制自身图形的方法。</span></span><br>&#123;<br>Graphics g = GameFrameWork.g;<br>g.DrawImage(GetImage(), X, Y);<br>&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="子类：MoveThing"><a href="#子类：MoveThing" class="headerlink" title="子类：MoveThing"></a><strong>子类：MoveThing</strong></h4><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-built_in">enum</span> Direction <span class="hljs-comment">//声明一个表示图形朝向的枚举。</span><br>&#123;<br>Up,<br>Down,<br>Left,<br>Right<br>&#125;<br><span class="hljs-keyword">class</span> <span class="hljs-title">MoveThing</span> : <span class="hljs-title">GameObject</span> <span class="hljs-comment">//声明表示可移动的物体的类，继承父类GameObject。</span><br>&#123;<br><span class="hljs-keyword">public</span> Bitmap BitmapUP &#123; <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; &#125;<br><span class="hljs-keyword">public</span> Bitmap BitmapDown &#123; <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; &#125;<br><span class="hljs-keyword">public</span> Bitmap BitmapLeft &#123; <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; &#125;<br><span class="hljs-keyword">public</span> Bitmap BitmapRight &#123; <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; &#125; <span class="hljs-comment">//声明表示可移动物体四个方向的图片。</span><br><span class="hljs-keyword">public</span> <span class="hljs-built_in">int</span> Speed &#123; <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; &#125; <span class="hljs-comment">//声明物体的移动速度。</span><br><span class="hljs-keyword">public</span> Direction Dir &#123; <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; &#125; <span class="hljs-comment">//声明物体的当前朝向。</span><br><br><span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">override</span> Image <span class="hljs-title">GetImage</span>() <span class="hljs-comment">//重写抽象父类获取自身图像的方法。</span></span><br>&#123;<br>Bitmap bitmap = <span class="hljs-literal">null</span>; <span class="hljs-comment">//先设置一个默认值为null的bitmap图形。</span><br><span class="hljs-keyword">switch</span>(Dir)<br>&#123;<br><span class="hljs-keyword">case</span> Direction.Up:<br>bitmap = BitmapUP;<br><span class="hljs-keyword">break</span>;<br><span class="hljs-keyword">case</span> Direction.Down:<br>bitmap = BitmapDown;<br><span class="hljs-keyword">break</span>;<br><span class="hljs-keyword">case</span> Direction.Left:<br>bitmap = BitmapLeft;<br><span class="hljs-keyword">break</span>;<br><span class="hljs-keyword">case</span> Direction.Right:<br>bitmap = BitmapRight;<br><span class="hljs-keyword">break</span>;<br>&#125; <span class="hljs-comment">//通过switch语句根据Dir表示的方向来对bitmap进行赋值，让方向和具体图像相对应。</span><br>bitmap.MakeTransparent(Color.Black); <span class="hljs-comment">//对bitmap进行透明化处理。</span><br><span class="hljs-keyword">return</span> bitmap; <span class="hljs-comment">//返回最后得到的bitmap。</span><br>&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h4 id="子类：NotMoveThing"><a href="#子类：NotMoveThing" class="headerlink" title="子类：NotMoveThing"></a><strong>子类：NotMoveThing</strong></h4><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">class</span> <span class="hljs-title">NotMoveThing</span> : <span class="hljs-title">GameObject</span> <span class="hljs-comment">//表示不可移动的物体，继承自父类。</span><br>&#123;<br><span class="hljs-keyword">public</span> Image Img &#123; <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; &#125; <span class="hljs-comment">//声明物体的图形。</span><br><span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">override</span> Image <span class="hljs-title">GetImage</span>() <span class="hljs-comment">//改写父类的抽象方法， 把物体的图像返回出来。</span></span><br>&#123;<br><span class="hljs-keyword">return</span> Img;<br>&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="15-绘制地图"><a href="#15-绘制地图" class="headerlink" title="15-绘制地图"></a>15-绘制地图</h3><h4 id="地图绘制"><a href="#地图绘制" class="headerlink" title="地图绘制"></a><strong>地图绘制</strong></h4><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">class</span> <span class="hljs-title">GameObjectManager</span><br>&#123;<br><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> List&lt;NotMoveThing&gt; Walllist = <span class="hljs-keyword">new</span> List&lt;NotMoveThing&gt;();<br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">DrawMap</span>()</span><br>&#123;<br><span class="hljs-keyword">foreach</span>(NotMoveThing nm <span class="hljs-keyword">in</span> Walllist)<br>&#123;<br>nm.DrawSelf();<br>&#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">CreateMap</span>()</span><br>&#123;<br>CreatWall(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">5</span>,Walllist);<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">CreatWall</span>(<span class="hljs-params"><span class="hljs-built_in">int</span> x,<span class="hljs-built_in">int</span> y,<span class="hljs-built_in">int</span> count, List&lt;NotMoveThing&gt; Walllist</span>)</span><br>&#123;<br><span class="hljs-built_in">int</span> xpositon = x * <span class="hljs-number">30</span>;<br><span class="hljs-built_in">int</span> ypositon = y * <span class="hljs-number">30</span>;<br><span class="hljs-keyword">for</span>(<span class="hljs-built_in">int</span> i = ypositon;i&lt;ypositon+count*<span class="hljs-number">30</span>;i+=<span class="hljs-number">15</span>)<br>&#123;<br>NotMoveThing wall1 = <span class="hljs-keyword">new</span> NotMoveThing(xpositon, i, Resources.wall);<br>NotMoveThing wall2= <span class="hljs-keyword">new</span> NotMoveThing(xpositon+<span class="hljs-number">15</span>, i, Resources.wall);<br>Walllist.Add(wall1);<br>Walllist.Add(wall2);<br>&#125;<br>&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%AC%94%E8%AE%B0/" class="category-chain-item">笔记</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E7%BC%96%E7%A8%8B/">#编程</a>
+      
+        <a href="/tags/C/">#C#</a>
+      
+        <a href="/tags/Unity/">#Unity</a>
+      
+    </div>
+  
+</div>
+
+
+              
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2023/04/06/%E6%9D%82%E8%B0%88/2023%E5%B9%B4%E5%BA%A6%E6%B8%B8%E6%88%8F%E6%80%BB%E7%BB%93/" title="年度游戏总结（2023）">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">年度游戏总结（2023）</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/12/29/%E6%9D%82%E8%B0%88/%E5%86%99%E4%BA%8E2023%E5%88%B0%E6%9D%A5%E4%B9%8B%E9%99%85/" title="写于2023到来之际">
+                        <span class="hidden-mobile">写于2023到来之际</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> & Eureka & <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

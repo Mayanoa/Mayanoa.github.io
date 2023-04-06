@@ -1,0 +1,724 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/Imgset/favicon.ico">
+  <link rel="icon" href="/Imgset/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Eureka">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="008-程序的基本语法 &#x2F; 009-基本语法总结 &#x2F; 010-输出语句练习题语法：控制台输出文本123Console.WriteLine(&quot;Hello World&quot;);  &#x2F;&#x2F;输出括号内的文本，输出完毕后默认换行。Console.Write(&quot;Hello &quot;); &#x2F;&#x2F;输出括号内的文本，输出完毕后默认不换行。Console.Write">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C#学习笔记-编程基础">
+<meta property="og:url" content="http://example.com/2022/12/12/%E7%AC%94%E8%AE%B0/C-%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/index.html">
+<meta property="og:site_name" content="Eureka的喵窝">
+<meta property="og:description" content="008-程序的基本语法 &#x2F; 009-基本语法总结 &#x2F; 010-输出语句练习题语法：控制台输出文本123Console.WriteLine(&quot;Hello World&quot;);  &#x2F;&#x2F;输出括号内的文本，输出完毕后默认换行。Console.Write(&quot;Hello &quot;); &#x2F;&#x2F;输出括号内的文本，输出完毕后默认不换行。Console.Write">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/Imgpost/%E7%AC%94%E8%AE%B0/C%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80cover.jpg">
+<meta property="article:published_time" content="2022-12-11T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-04-06T12:55:52.842Z">
+<meta property="article:author" content="Eureka">
+<meta property="article:tag" content="编程">
+<meta property="article:tag" content="C#">
+<meta property="article:tag" content="Unity">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/Imgpost/%E7%AC%94%E8%AE%B0/C%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80cover.jpg">
+  
+  
+  
+  <title>C#学习笔记-编程基础 - Eureka的喵窝</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.4","typing":{"enable":false,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":false,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Eureka的喵窝</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-books"></i>
+                <span>档案</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/Archives/GameRecord/">
+                    
+                    <span>游戏历程</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/Archives/Anime&amp;NovelRecord/">
+                    
+                    <span>动画&小说历程</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/Archives/GuestBook/">
+                    
+                    <span>留言簿</span>
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/Imgpost/%E7%AC%94%E8%AE%B0/C%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80cover.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle">C#学习笔记-编程基础</span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-12-12 00:00" pubdate>
+          2022年12月12日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          11k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          96 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">C#学习笔记-编程基础</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <span id="more"></span> 
+
+<h3 id="008-程序的基本语法-x2F-009-基本语法总结-x2F-010-输出语句练习题"><a href="#008-程序的基本语法-x2F-009-基本语法总结-x2F-010-输出语句练习题" class="headerlink" title="008-程序的基本语法 &#x2F; 009-基本语法总结 &#x2F; 010-输出语句练习题"></a>008-程序的基本语法 &#x2F; 009-基本语法总结 &#x2F; 010-输出语句练习题</h3><h4 id="语法：控制台输出文本"><a href="#语法：控制台输出文本" class="headerlink" title="语法：控制台输出文本"></a><strong>语法：控制台输出文本</strong></h4><figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs arcade"><span class="hljs-built_in">Console</span>.WriteLine(<span class="hljs-string">&quot;Hello World&quot;</span>);  <span class="hljs-comment">//输出括号内的文本，输出完毕后默认换行。</span><br><span class="hljs-built_in">Console</span>.Write(<span class="hljs-string">&quot;Hello &quot;</span>); <span class="hljs-comment">//输出括号内的文本，输出完毕后默认不换行。</span><br><span class="hljs-built_in">Console</span>.Write(<span class="hljs-string">&quot;World&quot;</span>); <span class="hljs-comment">//与上一条代码组合后会输出一行完整的Hello World。</span><br></code></pre></td></tr></table></figure>
+<h4 id="语法：转义符"><a href="#语法：转义符" class="headerlink" title="语法：转义符"></a><strong>语法：转义符</strong></h4><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs awk">Console.WriteLine(<span class="hljs-string">&quot;H\tello \nWorld&quot;</span>);  <br>Console.WriteLine(<span class="hljs-string">&quot;\\\&quot;&quot;</span>) <span class="hljs-regexp">//</span>会生成\”的字符。<br><span class="hljs-regexp">//</span>转义符\与n连用后代表换行，\与t连用后代表tab制表符（一般是四个空格）。<br><span class="hljs-regexp">//</span>转义符\与\连用后代表一个非转义作用的\字符。<br><span class="hljs-regexp">//</span>转义符与“连用后代表一个引号文本字符，不会被识别为字符串的标识。<br></code></pre></td></tr></table></figure>
+<h4 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a><strong>快捷键</strong></h4><figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs mathematica">注释代码：<span class="hljs-variable">Ctrl</span><span class="hljs-operator">+</span><span class="hljs-built_in">K</span> → <span class="hljs-variable">Ctrl</span><span class="hljs-operator">+</span><span class="hljs-built_in">C</span><br>解除注释：<span class="hljs-variable">Ctrl</span><span class="hljs-operator">+</span><span class="hljs-built_in">K</span> → <span class="hljs-variable">Ctrl</span><span class="hljs-operator">+</span><span class="hljs-variable">U</span><br>运行代码：<span class="hljs-variable">F5</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="特别注意"><a href="#特别注意" class="headerlink" title="特别注意"></a><strong>特别注意</strong></h4><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-regexp">//</span>多行注释时不能像 <span class="hljs-regexp">/ *我是注释 * /</span>这样，不能在*和/符号之间加空格。<br></code></pre></td></tr></table></figure>
+
+<h3 id="013-计算机基本知识-x2F-014-计算机中的数据"><a href="#013-计算机基本知识-x2F-014-计算机中的数据" class="headerlink" title="013-计算机基本知识 &#x2F; 014-计算机中的数据"></a>013-计算机基本知识 &#x2F; 014-计算机中的数据</h3><h4 id="快捷键-1"><a href="#快捷键-1" class="headerlink" title="快捷键"></a><strong>快捷键</strong></h4><figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs dos">Home/End键：快速定位至当前代码的最前端和最后端。<br><span class="hljs-built_in">Shift</span>键：光标放在起始代码行，按住<span class="hljs-built_in">Shift</span>，再移动光标至结束行，可以快速选中代码。<br>Ctrl+A：全选所有代码<br>Ctrl+S：快速保存<br>Ctrl+Z：撤销上一步操作<br></code></pre></td></tr></table></figure>
+
+<h4 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a><strong>数据类型</strong></h4><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs 1c">整数：<span class="hljs-number">1</span><br>浮点数：<span class="hljs-number">1.1</span><br>字符：&#x27;A&#x27;（注意是单引号）<br>字符串：<span class="hljs-string">&quot;AAAA&quot;</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="015-变量的声明和赋值-x2F-016-判断结果-练习-x2F-017-练习"><a href="#015-变量的声明和赋值-x2F-016-判断结果-练习-x2F-017-练习" class="headerlink" title="015-变量的声明和赋值 &#x2F; 016-判断结果-练习 &#x2F; 017-练习"></a>015-变量的声明和赋值 &#x2F; 016-判断结果-练习 &#x2F; 017-练习</h3><h4 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a><strong>基本语法</strong></h4><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs awk">int age; <span class="hljs-regexp">//</span>创建一个名为age的容器，容器的数据类型是int。<br>age = <span class="hljs-number">10</span>; <span class="hljs-regexp">//</span>把<span class="hljs-number">10</span>放在age这个容器里面，即赋值。<br>double age2; <span class="hljs-regexp">//</span>double存放小数，注意变量不能重名。<br>char age3 = <span class="hljs-string">&#x27;7&#x27;</span>; <span class="hljs-regexp">//</span>char存放单个字符，注意需要使用单引号。<br>string age4 = <span class="hljs-string">&quot;11岁&quot;</span>; <span class="hljs-regexp">//</span>可以把赋值和声明两个步骤合起来简写成一行。<br><span class="hljs-regexp">//</span>注意：变量名称由英文、数字和下划线组成，区分大小写，不能以数字开头。<br><span class="hljs-regexp">//</span>注意：必须先声明变量，再赋值，然后才能使用变量。<br></code></pre></td></tr></table></figure>
+
+<h4 id="其他注意事项"><a href="#其他注意事项" class="headerlink" title="其他注意事项"></a><strong>其他注意事项</strong></h4><figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs abnf">int a <span class="hljs-operator">=</span> <span class="hljs-number">1</span><span class="hljs-comment">;</span><br><span class="hljs-attribute">a</span> <span class="hljs-operator">=</span> <span class="hljs-number">10</span><span class="hljs-comment">; //被赋值的变量可以被多次赋值，每一次赋值会清空上一次的赋值。</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs angelscript"><span class="hljs-built_in">int</span> b = <span class="hljs-number">1</span> , c = <span class="hljs-number">2</span>; <span class="hljs-comment">//声明多个相同数据类型的变量时，可以简写成一行代码一起进行赋值。</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs reasonml"><span class="hljs-built_in">int</span> a =<span class="hljs-number">1</span> , b = <span class="hljs-number">2</span>;<br>Console.<span class="hljs-constructor">Writeline(<span class="hljs-params">a</span>+<span class="hljs-string">&quot;+&quot;</span>+<span class="hljs-params">b</span>)</span> <span class="hljs-comment">//输出：1+2</span><br>Console.<span class="hljs-constructor">Writeline(<span class="hljs-string">&quot;a+b&quot;</span>+<span class="hljs-params">a</span>+<span class="hljs-params">b</span>)</span> <span class="hljs-comment">//输出：a+b12</span><br>Console.<span class="hljs-constructor">Writeline(<span class="hljs-string">&quot;a+b&quot;</span>+(<span class="hljs-params">a</span>+<span class="hljs-params">b</span>)</span>) <span class="hljs-comment">//输出：a+b3</span><br><span class="hljs-comment">//注意：涉及到字符串与数字的加法运算时，默认是把字符串和数字直接拼接在一起。</span><br><span class="hljs-comment">//注意：在运算过程中，优先运算最里层括号的算式。</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="018-字符类型和对应的整数-x2F-019-字符串的声明和简单拼接操作"><a href="#018-字符类型和对应的整数-x2F-019-字符串的声明和简单拼接操作" class="headerlink" title="018-字符类型和对应的整数 &#x2F; 019-字符串的声明和简单拼接操作"></a>018-字符类型和对应的整数 &#x2F; 019-字符串的声明和简单拼接操作</h3><h4 id="字符类型与整数的转换"><a href="#字符类型与整数的转换" class="headerlink" title="字符类型与整数的转换"></a><strong>字符类型与整数的转换</strong></h4><figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs reasonml"><span class="hljs-built_in">char</span> a = <span class="hljs-character">&#x27;a&#x27;</span>;<br><span class="hljs-built_in">int</span> b = a;<br>Console.<span class="hljs-constructor">WriteLine(<span class="hljs-params">a</span>)</span>; <span class="hljs-comment">//输出：a</span><br>Console.<span class="hljs-constructor">WriteLine(<span class="hljs-params">b</span>)</span>; <span class="hljs-comment">//输出：97</span><br><span class="hljs-comment">//字符类型也代表一个整数，上述代码中，字符类型的a被再定义为整数类型后，输出变成97。</span><br><span class="hljs-comment">//字符与整数的转换规则详情可以见ASCII码表。</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs reasonml"><span class="hljs-built_in">int</span> a = <span class="hljs-number">97</span>;<br><span class="hljs-built_in">char</span> b = a; <span class="hljs-comment">//此处因为char类型比int类型要小，所以进行转换时会出现报错。</span><br><span class="hljs-built_in">char</span> b = (<span class="hljs-built_in">char</span>)a; <span class="hljs-comment">//遇到上述报错情况可以使用强制转换，语法时是在=号后面加上（类型）。</span><br>Console.<span class="hljs-constructor">WriteLine(<span class="hljs-params">a</span>)</span>; <span class="hljs-comment">//输出：97</span><br>Console.<span class="hljs-constructor">WriteLine(<span class="hljs-params">b</span>)</span>; <span class="hljs-comment">//输出：a</span><br><span class="hljs-comment">//注意：最好是在明确可以转换的情况下再使用强制转换，在不能转换时使用强制转换会出现问题。</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs livecodeserver"><span class="hljs-keyword">char</span> <span class="hljs-keyword">a</span> = <span class="hljs-string">&#x27;\n&#x27;</span>;<span class="hljs-comment"> //输出：</span><br><span class="hljs-keyword">char</span> b = <span class="hljs-string">&#x27;\\&#x27;</span>;<span class="hljs-comment"> //输出：\</span><br><span class="hljs-keyword">char</span> c = <span class="hljs-string">&#x27;\&quot;&#x27;</span>;<span class="hljs-comment"> //输出：&quot;</span><span class="hljs-comment"></span><br><span class="hljs-comment">//注意：字符类型不一定是单引号内只有一个字符，转义符\并不算在一个字符内。</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="字符的使用"><a href="#字符的使用" class="headerlink" title="@字符的使用"></a><strong>@字符的使用</strong></h4><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs awk">Console.WriteLine(<span class="hljs-string">&quot;C:\\A\\B\\C&quot;</span>); <span class="hljs-regexp">//</span>输出： C:\A\B\C<br>Console.WriteLine(@<span class="hljs-string">&quot;C:\A\B\C&quot;</span>);  <span class="hljs-regexp">//</span>输出： C:\A\B\C<br><span class="hljs-regexp">//</span>当需要输出的字符串内存在多个\字符且不希望发挥转义作用时，可以在双引号前加@字符取消全部\的转义作用。<br></code></pre></td></tr></table></figure>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs 1c">Console.WriteLine(@<span class="hljs-string">&quot;C:</span><br>\A<br>\B<br>\C<span class="hljs-string">&quot;);</span><br><span class="hljs-comment">//@字符的另一个作用就是可以直接在字符串的声明或直接输出时给字符串直接换行。</span><br><span class="hljs-comment">//使用@字符给字符串换行时，如果还需要使用正常的双引号“，可以用两个双引号“”来代替。</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="字符串的拼接"><a href="#字符串的拼接" class="headerlink" title="字符串的拼接"></a><strong>字符串的拼接</strong></h4><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs awk">Console.WriteLine(<span class="hljs-number">123</span>+“www”); <span class="hljs-regexp">//</span>输出：<span class="hljs-number">123</span>www<br><span class="hljs-regexp">//</span>两个字符串可以使用+符号来进行直接拼接，当数字类型和字符串类型使用+号连接时，一样进行拼接。<br></code></pre></td></tr></table></figure>
+
+<h3 id="020-怎么得到用户输入"><a href="#020-怎么得到用户输入" class="headerlink" title="020-怎么得到用户输入"></a>020-怎么得到用户输入</h3><h4 id="用户输入"><a href="#用户输入" class="headerlink" title="用户输入"></a><strong>用户输入</strong></h4><figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs reasonml"><span class="hljs-built_in">string</span> str = Console.<span class="hljs-constructor">ReadLine()</span>; <br><span class="hljs-comment">//使用Console.ReadLine()实现用户输入，并传递给字符串str赋值。</span><br><span class="hljs-built_in">int</span> strint = Convert.<span class="hljs-constructor">ToInt32(<span class="hljs-params">str</span>)</span>; <br><span class="hljs-comment">//Console.ReadLine()的输入默认为字符串，使用Convert.ToInt32()将字符串转换为int类型的数字。</span><br>Console.<span class="hljs-constructor">WriteLine(<span class="hljs-string">&quot;int&quot;</span> + <span class="hljs-params">strint</span>)</span>; <span class="hljs-comment">//将int和用户输入的数字拼接成一个字符串输出。</span><br><span class="hljs-comment">//注意：使用Convert.ToInt32()必须由用户输入数字才能执行，不然会报错。</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="024-命名规范和命名规则"><a href="#024-命名规范和命名规则" class="headerlink" title="024-命名规范和命名规则"></a>024-命名规范和命名规则</h3><h4 id="两种命名规范"><a href="#两种命名规范" class="headerlink" title="两种命名规范"></a><strong>两种命名规范</strong></h4><figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs delphi">驼峰命名法：⾸个单词的⾸字⺟⼩写，其余单词的⾸字⺟⼤写（enemyHp）<br><span class="hljs-keyword">Pascal</span>命名规范：每个单词的第⼀个字⺟都⼤写（EnemyHp），如果使⽤到英⽂单词的缩写，全部使⽤⼤写（HP）。<br>变量使⽤驼峰命名法，⽅法和类使⽤<span class="hljs-keyword">Pascal</span>命名规范。<br></code></pre></td></tr></table></figure>
+
+<h3 id="025-字符串格式化输出"><a href="#025-字符串格式化输出" class="headerlink" title="025-字符串格式化输出"></a>025-字符串格式化输出</h3><h4 id="字符串格式化"><a href="#字符串格式化" class="headerlink" title="字符串格式化"></a><strong>字符串格式化</strong></h4><figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs reasonml"><span class="hljs-built_in">int</span> a = <span class="hljs-number">100</span>, b = <span class="hljs-number">200</span>;<br>Console.<span class="hljs-constructor">WriteLine(<span class="hljs-params">a</span> + <span class="hljs-string">&quot;+&quot;</span> + <span class="hljs-params">b</span> + <span class="hljs-string">&quot;=&quot;</span>+(<span class="hljs-params">a</span> + <span class="hljs-params">b</span>)</span>); <span class="hljs-comment">//用字符串拼接的方式处理比较繁琐。</span><br>Console.<span class="hljs-constructor">WriteLine(<span class="hljs-string">&quot;&#123;0&#125;+&#123;1&#125;=&#123;2&#125;&quot;</span>,<span class="hljs-params">a</span>,<span class="hljs-params">b</span>,<span class="hljs-params">a</span>+<span class="hljs-params">b</span>)</span>; <span class="hljs-comment">//可以使用&#123;0&#125;这种替代符放入字符串。</span><br><span class="hljs-comment">//替代符的编号从0开始，可以给出值不使用，但不可以使用了没有给出的值。</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="026-数学运算符-x2F-27-练习题和赋值运算符"><a href="#026-数学运算符-x2F-27-练习题和赋值运算符" class="headerlink" title="026-数学运算符 &#x2F; 27-练习题和赋值运算符"></a>026-数学运算符 &#x2F; 27-练习题和赋值运算符</h3><h4 id="算数运算符"><a href="#算数运算符" class="headerlink" title="算数运算符"></a><strong>算数运算符</strong></h4><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs awk">加法：+<br>减法：-<br>乘法：*<br>除法：/（两个整数相除会自动省略掉小数点，得到整数）<br><span class="hljs-regexp">//</span>注意：如果不想忽略小数点，可以在赋值中把变量类型设置为double，并且在算式中加入一个小数。<br>取模：%（获得两个整数相除得到的余数）<br></code></pre></td></tr></table></figure>
+
+<h4 id="赋值运算符"><a href="#赋值运算符" class="headerlink" title="赋值运算符"></a><strong>赋值运算符</strong></h4><figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs mel"><span class="hljs-keyword">int</span> a = <span class="hljs-number">0</span>;<br>a += <span class="hljs-number">10</span>; <span class="hljs-comment">//结果：10</span><br>a -= <span class="hljs-number">5</span>; <span class="hljs-comment">//结果：5</span><br>a *= <span class="hljs-number">3</span>; <span class="hljs-comment">//结果：15</span><br>a /= <span class="hljs-number">6</span>; <span class="hljs-comment">//结果：2</span><br>a %= <span class="hljs-number">2</span>; 结果：<span class="hljs-number">0</span><br><span class="hljs-comment">//可以将算数运算符和赋值运算符=号合起来作为简写。</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="028-自增和自减运算符"><a href="#028-自增和自减运算符" class="headerlink" title="028-自增和自减运算符"></a>028-自增和自减运算符</h3><h4 id="自增-x2F-自减运算符"><a href="#自增-x2F-自减运算符" class="headerlink" title="自增&#x2F;自减运算符"></a><strong>自增&#x2F;自减运算符</strong></h4><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs awk">int a = <span class="hljs-number">5</span>;<br>a++; <span class="hljs-regexp">//</span>结果：<span class="hljs-number">6</span><br>a--; <span class="hljs-regexp">//</span>结果：<span class="hljs-number">5</span><br><span class="hljs-regexp">//</span>++和--为自增（自减）运算符，即将自己的值+<span class="hljs-number">1</span>或-<span class="hljs-number">1</span>。<br></code></pre></td></tr></table></figure>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs angelscript"><span class="hljs-built_in">int</span> a = <span class="hljs-number">5</span>;<br><span class="hljs-built_in">int</span> b = a++; <span class="hljs-comment">//先赋值，再自增，此时b的值为5，a的值为6。</span><br><span class="hljs-built_in">int</span> a = <span class="hljs-number">5</span>;<br><span class="hljs-built_in">int</span> b = ++a; <span class="hljs-comment">//先自增，再赋值，此时a和b的值都是6。</span><br><span class="hljs-comment">//++和--单独使用时，不管放在前面和后面都是自增自减。</span><br><span class="hljs-comment">//在涉及到多个变量的表达式中，放在前面是先自增再赋值，放在后面就是先赋值再自增。</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="029-关系运算符和布尔类型"><a href="#029-关系运算符和布尔类型" class="headerlink" title="029-关系运算符和布尔类型"></a>029-关系运算符和布尔类型</h3><h4 id="关系运算符和布尔类型"><a href="#关系运算符和布尔类型" class="headerlink" title="关系运算符和布尔类型"></a><strong>关系运算符和布尔类型</strong></h4><figure class="highlight nim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs nim"><span class="hljs-type">bool</span> a = <span class="hljs-literal">true</span>; <br><span class="hljs-type">bool</span> b = <span class="hljs-literal">false</span>;<br>//<span class="hljs-type">bool</span>类型只有<span class="hljs-literal">true</span>（<span class="hljs-number">1</span>）和<span class="hljs-literal">false</span>（<span class="hljs-number">0</span>）两个值，<span class="hljs-literal">true</span>为真，<span class="hljs-literal">false</span>为假。<br></code></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs awk">== <span class="hljs-regexp">//</span>判断左边是否等于右边<br>&gt; <span class="hljs-regexp">//</span>判断左边是否⼤于右边<br>&lt; <span class="hljs-regexp">//</span>判断左边是否⼩右边<br>&gt;= <span class="hljs-regexp">//</span>判断左边是否⼤于或等于右边<br>&lt;= <span class="hljs-regexp">//</span>判断左边是否⼩于或等于右边<br>!= <span class="hljs-regexp">//</span>判断左边是否不等于右边<br></code></pre></td></tr></table></figure>
+
+<h3 id="030-逻辑运算符"><a href="#030-逻辑运算符" class="headerlink" title="030-逻辑运算符"></a>030-逻辑运算符</h3><h4 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a><strong>逻辑运算符</strong></h4><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs awk">&amp;&amp; <span class="hljs-regexp">//</span>与，全真为真，有假为假。<br>|| <span class="hljs-regexp">//</span>或，有一个真即为真，全假为假。<br>！ <span class="hljs-regexp">//</span>非，将结果颠倒，条件为真则使之为假，反之亦然。<br></code></pre></td></tr></table></figure>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">bool</span> a = <span class="hljs-number">3</span> &gt; <span class="hljs-number">1</span> &amp;&amp; <span class="hljs-number">2</span> &gt; <span class="hljs-number">4</span>;  //<span class="hljs-number">2</span>&gt;<span class="hljs-number">4</span>为假，所以是false。<br><span class="hljs-attribute">bool</span> b = <span class="hljs-number">3</span> &gt; <span class="hljs-number">1</span> || <span class="hljs-number">2</span> &gt; <span class="hljs-number">4</span>; //<span class="hljs-number">3</span>&gt;<span class="hljs-number">1</span>为真，所以是true。<br><span class="hljs-attribute">bool</span> c = !(<span class="hljs-number">3</span> &gt; <span class="hljs-number">1</span>); //<span class="hljs-number">3</span>&gt;<span class="hljs-number">1</span>为真，颠倒结果，所以是false。<br></code></pre></td></tr></table></figure>
+
+<h3 id="034-if条件语句"><a href="#034-if条件语句" class="headerlink" title="034-if条件语句"></a>034-if条件语句</h3><h4 id="if语句"><a href="#if语句" class="headerlink" title="if语句"></a><strong>if语句</strong></h4><figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs arcade"><span class="hljs-keyword">if</span> (Convert.ToInt32(<span class="hljs-built_in">Console</span>.ReadLine())&gt;=<span class="hljs-number">10</span>)<br>&#123;<br><span class="hljs-built_in">Console</span>.WriteLine(<span class="hljs-string">&quot;可以进入&quot;</span>);<br>&#125;<br><span class="hljs-comment">//语法为：if(条件)&#123;执行语句&#125;，小括号为条件，大括号内为满足条件后运行的语句。</span><br></code></pre></td></tr></table></figure>
+<h4 id="if-else语句"><a href="#if-else语句" class="headerlink" title="if-else语句"></a><strong>if-else语句</strong></h4><figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs arcade"><span class="hljs-keyword">if</span> (Convert.ToInt32(<span class="hljs-built_in">Console</span>.ReadLine())&gt;=<span class="hljs-number">10</span>)<br>&#123;<br><span class="hljs-built_in">Console</span>.WriteLine(<span class="hljs-string">&quot;可以进入&quot;</span>);<br>&#125;<br><span class="hljs-keyword">else</span><br>&#123;<br><span class="hljs-built_in">Console</span>.WriteLine(<span class="hljs-string">&quot;不可以进入&quot;</span>);<br>&#125;<br><span class="hljs-comment">//语法为：if(条件)&#123;执行语句&#125;else&#123;执行语句&#125;，第二个大括号内为不满足条件时执行的语句。</span><br><span class="hljs-comment">//在大括号内的执行语句中也可以嵌套新的if语句用来做多层级判断条件的处理。</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="if-else-if语句"><a href="#if-else-if语句" class="headerlink" title="if-else-if语句"></a><strong>if-else-if语句</strong></h4><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs awk">int score = Convert.ToInt32(Console.ReadLine());<br><span class="hljs-keyword">if</span> (score &gt;=<span class="hljs-number">90</span>)<br>&#123;<br>Console.WriteLine(<span class="hljs-string">&quot;A&quot;</span>);<br>&#125;<br><span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (score &gt;=<span class="hljs-number">70</span>)<br>&#123;<br>Console.WriteLine(<span class="hljs-string">&quot;B&quot;</span>);<br>&#125;<br><span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (score &gt;= <span class="hljs-number">60</span>)<br>&#123;<br>Console.WriteLine(<span class="hljs-string">&quot;C&quot;</span>);            <br>&#125;<br><span class="hljs-keyword">else</span><br>&#123;<br>Console.WriteLine(<span class="hljs-string">&quot;D&quot;</span>);<br>&#125;<br><span class="hljs-regexp">//</span>语法为：<span class="hljs-keyword">if</span>(条件)&#123;执行语句&#125;<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>&#123;执行语句&#125;…<span class="hljs-keyword">else</span>&#123;执行语句&#125;。<br><span class="hljs-regexp">//</span>可以理解为在第一个<span class="hljs-keyword">if</span>未满足条件的情况下，读取下一个elseif的条件，满足便执行后续的代码。<br><span class="hljs-regexp">//</span>如此一层一层往下读，读到最后一个<span class="hljs-keyword">else</span>还未满足过条件，就执行最后一个<span class="hljs-keyword">else</span>后面的代码。<br></code></pre></td></tr></table></figure>
+
+<h3 id="044-switch语句-基本语法"><a href="#044-switch语句-基本语法" class="headerlink" title="044-switch语句-基本语法"></a>044-switch语句-基本语法</h3><h4 id="switch语句"><a href="#switch语句" class="headerlink" title="switch语句"></a><strong>switch语句</strong></h4><figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs autoit"><span class="hljs-keyword">switch</span>(变量)<br>&#123;<br><span class="hljs-keyword">case</span> 条件<span class="hljs-number">1</span>:<br>执行代码<br><span class="hljs-built_in">break</span><span class="hljs-comment">;</span><br><span class="hljs-keyword">case</span> 条件<span class="hljs-number">2</span>:<br>执行代码<br><span class="hljs-built_in">break</span><span class="hljs-comment">;</span><br><span class="hljs-keyword">case</span> 条件<span class="hljs-number">3</span>:<br>执行代码<br><span class="hljs-built_in">break</span><span class="hljs-comment">;</span><br><span class="hljs-literal">default</span>:<br>执行代码<br><span class="hljs-built_in">break</span><span class="hljs-comment">;</span><br>&#125;<br>//注意：<span class="hljs-literal">default</span>可以没有。<br>//注意：每⼀个<span class="hljs-keyword">case</span>后⾯⼀般都有<span class="hljs-built_in">break</span>。<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs actionscript"><span class="hljs-keyword">switch</span>(变量)<br>&#123;<br><span class="hljs-keyword">case</span> 条件<span class="hljs-number">1</span>:<br><span class="hljs-keyword">case</span> 条件<span class="hljs-number">2</span>:<br><span class="hljs-keyword">case</span> 条件<span class="hljs-number">3</span>:<br>执行代码<br><span class="hljs-keyword">break</span>;<br><span class="hljs-keyword">default</span>:<br>执行代码<br><span class="hljs-keyword">break</span>;<br>&#125;<br><span class="hljs-comment">//当多个不同条件执行相同代码时，可以按照将case逐行放在一起，这样只需要加一次执行代码。</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="048-while循环的基本结构"><a href="#048-while循环的基本结构" class="headerlink" title="048-while循环的基本结构"></a>048-while循环的基本结构</h3><h4 id="while循环语句"><a href="#while循环语句" class="headerlink" title="while循环语句"></a><strong>while循环语句</strong></h4><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-keyword">while</span>（条件表达式）<br>&#123;<br>循环体<br>&#125;<br><span class="hljs-regexp">//</span>注意：当满⾜条件的时候会⼀直执⾏，不满⾜条件的时候，跳出循环。<br><span class="hljs-regexp">//</span>注意：条件表达式也是布尔表达式，需要返回⼀个布尔值。<br></code></pre></td></tr></table></figure>
+
+<h3 id="054-通过for循环输出1-10"><a href="#054-通过for循环输出1-10" class="headerlink" title="054-通过for循环输出1-10"></a>054-通过for循环输出1-10</h3><h4 id="for循环语句"><a href="#for循环语句" class="headerlink" title="for循环语句"></a><strong>for循环语句</strong></h4><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs stylus"><span class="hljs-function"><span class="hljs-title">for</span><span class="hljs-params">(初始化;条件表达式;增量表达式)</span></span><br>&#123;<br>循环体<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs abnf">for(int i <span class="hljs-operator">=</span><span class="hljs-number">1</span><span class="hljs-comment">;i&lt;=10;i++)</span><br>&#123;<br>console.writeline(i)<span class="hljs-comment">;</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="056-do-while循环"><a href="#056-do-while循环" class="headerlink" title="056-do-while循环"></a>056-do-while循环</h3><h4 id="do-while循环语句"><a href="#do-while循环语句" class="headerlink" title="do-while循环语句"></a><strong>do-while循环语句</strong></h4><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-keyword">do</span><br>&#123;<br>循环体<br>&#125;<br><span class="hljs-keyword">while</span>(条件表达式);<br><span class="hljs-regexp">//</span>当⾸次进⼊循环不满⾜条件表达式的时候，dowhile会执⾏⼀次循环体，<span class="hljs-keyword">while</span>⼀次都不会执⾏。<br><span class="hljs-regexp">//</span>其他情况，<span class="hljs-keyword">do</span> <span class="hljs-keyword">while</span>和<span class="hljs-keyword">while</span>没有区别。<br></code></pre></td></tr></table></figure>
+
+<h3 id="057-for循环的其他情况"><a href="#057-for循环的其他情况" class="headerlink" title="057-for循环的其他情况"></a>057-for循环的其他情况</h3><h4 id="强行终止循环"><a href="#强行终止循环" class="headerlink" title="强行终止循环"></a><strong>强行终止循环</strong></h4><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-regexp">//</span>可以在<span class="hljs-keyword">for</span>循环中加入<span class="hljs-keyword">if</span>条件判断语句，然后插入<span class="hljs-keyword">break</span>来强行终止循环。<br></code></pre></td></tr></table></figure>
+
+<h3 id="058-变量的作用域"><a href="#058-变量的作用域" class="headerlink" title="058-变量的作用域"></a>058-变量的作用域</h3><h4 id="变量的作用域"><a href="#变量的作用域" class="headerlink" title="变量的作用域"></a><strong>变量的作用域</strong></h4><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-regexp">//</span>变量仅在自己的作用域内才能生效，例如在<span class="hljs-keyword">for</span>循环中定义的变量i不能在循环语句外使用。<br><span class="hljs-regexp">//</span>在不同的作用域下，可以存在多个重名的变量。<br></code></pre></td></tr></table></figure>
+
+<h3 id="066-编程题（单个字符读取）"><a href="#066-编程题（单个字符读取）" class="headerlink" title="066-编程题（单个字符读取）"></a>066-编程题（单个字符读取）</h3><h4 id="读取控制台输入的单个字符"><a href="#读取控制台输入的单个字符" class="headerlink" title="读取控制台输入的单个字符"></a><strong>读取控制台输入的单个字符</strong></h4><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs gradle"><span class="hljs-keyword">char</span> a =(<span class="hljs-keyword">char</span>)console.<span class="hljs-keyword">read</span>();<br><span class="hljs-keyword">char</span> b =(<span class="hljs-keyword">char</span>)console.<span class="hljs-keyword">read</span>();<br><span class="hljs-comment">//console.read()在运行时要求在控制台输入一串字符，在按下回车后判定为输入完毕。</span><br><span class="hljs-comment">//接着根据执行console.read()语句的此时将输入的字符串的前若干位存储入变量。</span><br><span class="hljs-comment">//注意：在不用(char)进行强制转换的情况下，默认读取的字符是int类型即字符对应ASCII表的数字。</span><br><span class="hljs-comment">//在控制台输入超过console.read()语句数量的字符后：</span><br><span class="hljs-comment">//即使运行了其他语句，再执行该语句为变量赋值时，会直接使用前一次输入的字符串的字符。</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="068-循环中的continue"><a href="#068-循环中的continue" class="headerlink" title="068-循环中的continue"></a>068-循环中的continue</h3><h4 id="循环中的continue"><a href="#循环中的continue" class="headerlink" title="循环中的continue"></a><strong>循环中的continue</strong></h4><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-regexp">//</span>在循环中嵌套<span class="hljs-keyword">if</span>语句中插入<span class="hljs-keyword">continue</span>，满足<span class="hljs-keyword">if</span>的条件后，运行<span class="hljs-keyword">continue</span>语句。<br><span class="hljs-regexp">//</span>此时直接终止当前循环，进行下一次循环。<br><span class="hljs-regexp">//</span>和<span class="hljs-keyword">break</span>的区别在于<span class="hljs-keyword">continue</span>不会终止全部循环，仅终止本次的循环（不运行此次循环中后续的代码）。<br></code></pre></td></tr></table></figure>
+
+<h3 id="074-猜数字小游戏"><a href="#074-猜数字小游戏" class="headerlink" title="074-猜数字小游戏"></a>074-猜数字小游戏</h3><h4 id="随机数生成"><a href="#随机数生成" class="headerlink" title="随机数生成"></a><strong>随机数生成</strong></h4><figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs arcade"><span class="hljs-built_in">Random</span> rd = <span class="hljs-keyword">New</span> <span class="hljs-built_in">Random</span>(); <span class="hljs-comment">//创建一个新的随机数对象rd。</span><br><span class="hljs-built_in">Console</span>.Writeline(rd.Next(<span class="hljs-number">1</span>,<span class="hljs-number">10</span>)) <span class="hljs-comment">//使用Next方法生成一个区间在[1，10）以内的随机数并输出。</span><br><span class="hljs-comment">//注意：区间是左闭右开，上述例子中，生成的数字可以是1，但不会是10。</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="075-基本数据类型-整型-x2F-076-基本数据类型-浮点（小数）类型"><a href="#075-基本数据类型-整型-x2F-076-基本数据类型-浮点（小数）类型" class="headerlink" title="075-基本数据类型-整型 &#x2F; 076-基本数据类型-浮点（小数）类型"></a>075-基本数据类型-整型 &#x2F; 076-基本数据类型-浮点（小数）类型</h3><h3 id="077-类型的转换（显式和隐式转换）"><a href="#077-类型的转换（显式和隐式转换）" class="headerlink" title="077-类型的转换（显式和隐式转换）"></a>077-类型的转换（显式和隐式转换）</h3><h4 id="整型-x2F-浮点数据"><a href="#整型-x2F-浮点数据" class="headerlink" title="整型&#x2F;浮点数据"></a><strong>整型&#x2F;浮点数据</strong></h4><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-built_in">byte</span>:可以安全转换为<span class="hljs-built_in">short</span>，<span class="hljs-built_in">ushort</span>，<span class="hljs-built_in">int</span>，<span class="hljs-built_in">uint</span>，<span class="hljs-built_in">long</span>，<span class="hljs-built_in">ulong</span>，<span class="hljs-built_in">float</span>，<span class="hljs-built_in">double</span>，<span class="hljs-built_in">decimal</span>。<br><span class="hljs-built_in">sbyte</span>:可以安全转换为<span class="hljs-built_in">short</span>，<span class="hljs-built_in">int</span>，<span class="hljs-built_in">long</span>，<span class="hljs-built_in">float</span>，<span class="hljs-built_in">double</span>，<span class="hljs-built_in">decimal</span>。<br>shourt：可以安全转换为<span class="hljs-built_in">int</span>，<span class="hljs-built_in">long</span>，<span class="hljs-built_in">float</span>，<span class="hljs-built_in">double</span>，<span class="hljs-built_in">decimal</span>。<br><span class="hljs-built_in">ushort</span>：可以安全转换为<span class="hljs-built_in">int</span>，<span class="hljs-built_in">uint</span>，<span class="hljs-built_in">long</span>，<span class="hljs-built_in">ulong</span>，<span class="hljs-built_in">float</span>，<span class="hljs-built_in">double</span>，<span class="hljs-built_in">decimal</span>。<br><span class="hljs-built_in">int</span>：可以安全转换为<span class="hljs-built_in">long</span>，<span class="hljs-built_in">float</span>，<span class="hljs-built_in">double</span>，<span class="hljs-built_in">decimal</span>。 <span class="hljs-comment">//int转换成float可能会丢失精度。</span><br>unit：可以安全转换为<span class="hljs-built_in">long</span>，<span class="hljs-built_in">ulong</span>，<span class="hljs-built_in">float</span>，<span class="hljs-built_in">double</span>，demical。<br><span class="hljs-built_in">long</span>：可以安全转换为<span class="hljs-built_in">float</span>，<span class="hljs-built_in">double</span>，<span class="hljs-built_in">decimal</span>。<br><span class="hljs-built_in">ulong</span>:可以安全转换为<span class="hljs-built_in">float</span>，<span class="hljs-built_in">double</span>，<span class="hljs-built_in">decimal</span>。<br><span class="hljs-built_in">float</span>：可以安全转换为<span class="hljs-built_in">double</span>。<span class="hljs-comment">//使用float定义数据：float a =1.5f </span><br><span class="hljs-comment">//注意使用flaot类型赋值要在最后加个f。</span><br><span class="hljs-built_in">char</span>:可以安全转换为<span class="hljs-built_in">ushort</span>，<span class="hljs-built_in">int</span>，<span class="hljs-built_in">uint</span>，<span class="hljs-built_in">long</span>，<span class="hljs-built_in">ulong</span>，<span class="hljs-built_in">float</span>，<span class="hljs-built_in">double</span>，<span class="hljs-built_in">decimal</span>。<br><span class="hljs-comment">//注意：赋值的时候，两边类型是需要⼀致的，如果不⼀致的话，就需要转换类型。</span><br><span class="hljs-comment">//有些条件下，会⾃动进⾏转换，叫做隐式转换。</span><br><span class="hljs-comment">//有些情况下，需要我们告诉编译器进⾏类型转换，叫做显⽰转换，也叫做强制类型转换，强塞。</span><br><span class="hljs-comment">//不能强制转换不同类型的数据，比如不能把数字类型强制转换成字符串类型。</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs dos">不同数据类型的强制转换使用<span class="hljs-built_in">convert</span>.toxxxxx方法。<br>例如：<span class="hljs-built_in">convert</span>.toint32  <span class="hljs-built_in">convert</span>.todouble  <span class="hljs-built_in">convert</span>.tostring 等等。<br></code></pre></td></tr></table></figure>
+
+<h3 id="081-什么是数组-x2F-082-数组的使用"><a href="#081-什么是数组-x2F-082-数组的使用" class="headerlink" title="081-什么是数组 &#x2F; 082-数组的使用"></a>081-什么是数组 &#x2F; 082-数组的使用</h3><h4 id="数组的声明"><a href="#数组的声明" class="headerlink" title="数组的声明"></a><strong>数组的声明</strong></h4><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs awk">int[] ages = &#123;<span class="hljs-number">32</span>,<span class="hljs-number">12</span>,<span class="hljs-number">56</span>,<span class="hljs-number">78</span>&#125;; <span class="hljs-regexp">//</span>数组长度为括号里面的数字的数目。<br><span class="hljs-regexp">//</span>忽略new int[]的语句时声明需要在同一行完成。<br><span class="hljs-regexp">//</span>数组的组成有下标（索引），从<span class="hljs-number">0</span>开始排，可以理解为序号。<br>console.writeline(ages[<span class="hljs-number">0</span>]); <span class="hljs-regexp">//</span>通过数组名[索引]来访问对应的数组内容。<br></code></pre></td></tr></table></figure>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs arduino"><span class="hljs-type">int</span>[] ages = <span class="hljs-keyword">new</span> <span class="hljs-type">int</span> [<span class="hljs-number">10</span>]; <span class="hljs-comment">//创建一个长度为10的数组，没有声明具体的数字，所以会用默认值0。</span><br>age[<span class="hljs-number">4</span>] = <span class="hljs-number">20</span>; <span class="hljs-comment">//可以再次声明单独修改数组里面的单个元素的值。</span><br><span class="hljs-comment">//注意：声明时直接确定数组长度时，长度需要和赋值时提供的数字个数一致，否则会报错。</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="083-数组的遍历"><a href="#083-数组的遍历" class="headerlink" title="083-数组的遍历"></a>083-数组的遍历</h3><h4 id="数组的遍历"><a href="#数组的遍历" class="headerlink" title="数组的遍历"></a><strong>数组的遍历</strong></h4><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs gradle"><span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span> ; i&lt;<span class="hljs-number">10</span> ; i++)<br>&#123;<br>console.<span class="hljs-keyword">write</span>(ages[i]+<span class="hljs-string">&quot; &quot;</span>); <br>&#125;<br><span class="hljs-comment">//通过for循环来遍历数组。</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs awk">int i = <span class="hljs-number">0</span>;<br><span class="hljs-keyword">while</span>  (i&lt;<span class="hljs-number">10</span>)<br>&#123;<br>console.write(ages[i]+<span class="hljs-string">&quot; &quot;</span>);<br>i++;<br>&#123;<br><span class="hljs-regexp">//</span>通过<span class="hljs-keyword">while</span>循环来遍历数组。<br></code></pre></td></tr></table></figure>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-keyword">foreach</span>(<span class="hljs-type">int</span> <span class="hljs-keyword">temp</span> <span class="hljs-keyword">in</span> ages) //<span class="hljs-keyword">temp</span>是临时变量<br>&#123;<br>console.<span class="hljs-keyword">write</span>(<span class="hljs-keyword">temp</span> +&quot; &quot;);<br>&#125;<br>//通过<span class="hljs-keyword">for</span> <span class="hljs-keyword">each</span>循环遍历数组。<br>//<span class="hljs-keyword">for</span> <span class="hljs-keyword">each</span>仅用于集合的遍历，且仅能正序遍历数组。<br></code></pre></td></tr></table></figure>
+<h4 id="数组长度的获取"><a href="#数组长度的获取" class="headerlink" title="数组长度的获取"></a><strong>数组长度的获取</strong></h4><figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs arcade">ages.<span class="hljs-built_in">length</span> <span class="hljs-comment">//可以通过数组.length来获取数组的具体长度。</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="084-字符串-字符数组"><a href="#084-字符串-字符数组" class="headerlink" title="084-字符串-字符数组"></a>084-字符串-字符数组</h3><h4 id="字符数组"><a href="#字符数组" class="headerlink" title="字符数组"></a><strong>字符数组</strong></h4><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs awk">string name = <span class="hljs-string">&quot;lchiot&quot;</span> <span class="hljs-regexp">//</span>lchiot字符串可以看作一个字符的数组。<br><span class="hljs-regexp">//</span>字符串数组也可以用string[序号]来进行访问，但不能单独修改组成部分。<br>console.writeline(name.lengyh); <span class="hljs-regexp">//</span>输出name字符串的长度并输出。<br><span class="hljs-keyword">for</span> each (string temp <span class="hljs-keyword">in</span> name)<br>&#123;<br>console.writeline(temp); <span class="hljs-regexp">//</span>用<span class="hljs-keyword">for</span> each遍历字符串中的每一个字符。<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="085-字符串操作常用方法-x2F-086-字符串操作Split"><a href="#085-字符串操作常用方法-x2F-086-字符串操作Split" class="headerlink" title="085-字符串操作常用方法 &#x2F; 086-字符串操作Split"></a>085-字符串操作常用方法 &#x2F; 086-字符串操作Split</h3><h4 id="字符串的常用方法"><a href="#字符串的常用方法" class="headerlink" title="字符串的常用方法"></a><strong>字符串的常用方法</strong></h4><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs stylus">字符串<span class="hljs-selector-class">.tolower</span>() / 字符串<span class="hljs-selector-class">.toupper</span>() <span class="hljs-comment">//把字符串里的所有字母全变成小写or大写。</span><br><span class="hljs-comment">//注意：使用该方法不会修改字符串本身，需要申明一个新的字符串来接收结果。</span><br>字符串<span class="hljs-selector-class">.Trim</span>() / 字符串<span class="hljs-selector-class">.TrimStart</span>() / 字符串<span class="hljs-selector-class">.TrimEnd</span>() <br><span class="hljs-comment">//trim：去除字符串前后的空格；trimstart：只去除前面的；trimend：只去除后面的。</span><br>字符串<span class="hljs-selector-class">.Split</span>(分割号) <span class="hljs-comment">//根据分割号将一个字符串切割成若干个字符串组成的字符串数组。</span><br>string <span class="hljs-selector-attr">[]</span> strarray = name<span class="hljs-selector-class">.Spilit</span>(<span class="hljs-string">&quot;,&quot;</span>) <span class="hljs-comment">//根据逗号将name字符串切割成若干个字符串组成staarray数组。</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="087-编程题-可乐和字符串加密"><a href="#087-编程题-可乐和字符串加密" class="headerlink" title="087-编程题-可乐和字符串加密"></a>087-编程题-可乐和字符串加密</h3><h4 id="将字符串转换为字符数组"><a href="#将字符串转换为字符数组" class="headerlink" title="将字符串转换为字符数组"></a><strong>将字符串转换为字符数组</strong></h4><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs awk">字符串.tochararray(); <span class="hljs-regexp">//</span>将字符串转换为字符数组的方法。<br>chararrar[i] =(char)(chararray[i] +<span class="hljs-number">2</span>) <br><span class="hljs-regexp">//</span>注意：字符与整数相加时默认会将字符转换为ASCII表对应的数字再相加输出整数。<br><span class="hljs-regexp">//</span>因此还需要通过强制转换（char）强制将整数再重新转换成char类型完成数组变化。<br></code></pre></td></tr></table></figure>
+
+<h3 id="090-编程题-排序-系统方法"><a href="#090-编程题-排序-系统方法" class="headerlink" title="090-编程题-排序-系统方法"></a>090-编程题-排序-系统方法</h3><h4 id="通过系统的方法对数组进行排序"><a href="#通过系统的方法对数组进行排序" class="headerlink" title="通过系统的方法对数组进行排序"></a><strong>通过系统的方法对数组进行排序</strong></h4><figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs reasonml">Array.<span class="hljs-constructor">Sort(<span class="hljs-params">intarray</span>)</span>; <span class="hljs-comment">//array.sort(数组)可以对任意数组进行从小到大的排序。</span><br>foreach (<span class="hljs-built_in">int</span> t <span class="hljs-keyword">in</span> intarray)<br>&#123;<br>Console.<span class="hljs-constructor">WriteLine(<span class="hljs-params">t</span>)</span>; <span class="hljs-comment">//对排序结果再进行输出。</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="098-方法（函数）的定义和调用"><a href="#098-方法（函数）的定义和调用" class="headerlink" title="098-方法（函数）的定义和调用"></a>098-方法（函数）的定义和调用</h3><h4 id="函数的定义和调用"><a href="#函数的定义和调用" class="headerlink" title="函数的定义和调用"></a><strong>函数的定义和调用</strong></h4><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs scss">static void <span class="hljs-built_in">Verify</span>() <span class="hljs-comment">//void是返回值，Verify是方法名。</span><br>&#123;<br>console<span class="hljs-selector-class">.writeline</span>(&quot;这是一个函数&quot;); <span class="hljs-comment">//编写函数的执行代码。</span><br>&#125;<br><span class="hljs-built_in">Verify</span>(); <span class="hljs-comment">//使用函数。</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="099-方法的参数和返回值的作用"><a href="#099-方法的参数和返回值的作用" class="headerlink" title="099-方法的参数和返回值的作用"></a>099-方法的参数和返回值的作用</h3><h4 id="方法的返回值和参数"><a href="#方法的返回值和参数" class="headerlink" title="方法的返回值和参数"></a><strong>方法的返回值和参数</strong></h4><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-built_in">int</span> <span class="hljs-title">Add</span>(<span class="hljs-params"><span class="hljs-built_in">int</span> a,<span class="hljs-built_in">int</span> b</span>) <span class="hljs-comment">//括号内定义参数。</span></span><br>&#123;<br><span class="hljs-keyword">return</span> a+b; <span class="hljs-comment">//设置返回的值。</span><br>&#125;<br>Add(<span class="hljs-number">3</span>,<span class="hljs-number">5</span>); <span class="hljs-comment">//调用具体的参数。</span><br><span class="hljs-built_in">int</span> result =<span class="hljs-keyword">add</span>(<span class="hljs-number">3</span>,<span class="hljs-number">5</span>); <span class="hljs-comment">//通过定义新变量获取函数的返回值。</span><br>console.writeline(result);<br>注意：执行<span class="hljs-keyword">return</span>后默认方法结束了，该方法后续的代码不会再执行。<br></code></pre></td></tr></table></figure>
+
+<h3 id="102-方法中的参数数组"><a href="#102-方法中的参数数组" class="headerlink" title="102-方法中的参数数组"></a>102-方法中的参数数组</h3><h4 id="参数数组"><a href="#参数数组" class="headerlink" title="参数数组"></a><strong>参数数组</strong></h4><figure class="highlight stan"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs stan">static <span class="hljs-type">int</span> Add(params <span class="hljs-type">int</span>[] <span class="hljs-type">array</span>) <br>&#123;<br><span class="hljs-type">int</span> <span class="hljs-built_in">sum</span> = <span class="hljs-number">0</span>;<br>foreach (<span class="hljs-type">int</span> temp <span class="hljs-keyword">in</span> <span class="hljs-type">array</span>)<br>&#123;<br><span class="hljs-built_in">sum</span> = <span class="hljs-built_in">sum</span> + temp;<br>&#125;<br><span class="hljs-keyword">return</span> <span class="hljs-built_in">sum</span>;<br>&#125;<br><span class="hljs-comment">//在数组参数之前加上params后，调用时不用再声明完整的数组。</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs awk">int sum = Add(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>);<br>Console.WriteLine(sum);<br><span class="hljs-regexp">//</span>调用时直接函数名（数组组成部分）即可，不用先声明一个新的数组了。<br><span class="hljs-regexp">//</span>params会自动把各个int参数组合成一个完整的数组后再放入函数中进行运行。<br><span class="hljs-regexp">//</span>params之前还可以加入其他类型的参数，但params必须是函数中的最后一个参数。<br><span class="hljs-regexp">//</span>返回值也可以是一个数组。<br></code></pre></td></tr></table></figure>
+
+<h3 id="104-函数的重载-Overload"><a href="#104-函数的重载-Overload" class="headerlink" title="104-函数的重载-Overload"></a>104-函数的重载-Overload</h3><h4 id="函数的重载"><a href="#函数的重载" class="headerlink" title="函数的重载"></a><strong>函数的重载</strong></h4><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-regexp">//</span>多个函数名相同，参数不同，这个叫做函数的重载。<br><span class="hljs-regexp">//</span>编译器通过不同的参数去识别应该调⽤哪⼀个函数。<br><span class="hljs-regexp">//</span>编译器会根据你传递过来的实参的类型去判定调⽤哪⼀个函数。<br></code></pre></td></tr></table></figure>
+
+<h3 id="105-方法的递归调用"><a href="#105-方法的递归调用" class="headerlink" title="105-方法的递归调用"></a>105-方法的递归调用</h3><h4 id="递归函数"><a href="#递归函数" class="headerlink" title="递归函数"></a><strong>递归函数</strong></h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs">调⽤⾃⾝的函数就是递归函数。<br>递归需要设置一个递归的终止条件，没有终止条件会进入死循环。<br></code></pre></td></tr></table></figure>
+
+<h3 id="109-常量"><a href="#109-常量" class="headerlink" title="109-常量"></a>109-常量</h3><h4 id="常量的声明"><a href="#常量的声明" class="headerlink" title="常量的声明"></a><strong>常量的声明</strong></h4><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs awk">const int i = <span class="hljs-number">10</span>; <span class="hljs-regexp">//</span>前面加const代表常量声明。<br><span class="hljs-regexp">//</span>注意：声明常量后，不能对常量再进行赋值。<br><span class="hljs-regexp">//</span>常量的名字一般是全部大写。<br></code></pre></td></tr></table></figure>
+
+<h3 id="110-什么是枚举类型"><a href="#110-什么是枚举类型" class="headerlink" title="110-什么是枚举类型"></a>110-什么是枚举类型</h3><h4 id="枚举类型的定义与声明"><a href="#枚举类型的定义与声明" class="headerlink" title="枚举类型的定义与声明"></a><strong>枚举类型的定义与声明</strong></h4><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs awk">enum RoleType <span class="hljs-regexp">//</span>roletype是枚举类型的名字。<br>&#123;<br>Mage = <span class="hljs-number">10</span>,Archer,Assassin,Tank,Support,Warriar <span class="hljs-regexp">//</span>枚举类型的值，用逗号隔开。<br>&#125;<br><span class="hljs-regexp">//</span>枚举类型的值不需要用引号，直接写就可以。<br><span class="hljs-regexp">//</span>上述代码是枚举声明的过程。<br>RoleType t1 = RoleType.Tank; <span class="hljs-regexp">//</span>使用枚举类型名字.类型的值可以对变量进行声明。<br><span class="hljs-regexp">//</span>枚举类型变量的赋值和使用与正常的变量相同。<br><span class="hljs-regexp">//</span>每个枚举类型的值同时也是一个整数类型，默认按照顺序从<span class="hljs-number">0</span>开始递增。<br><span class="hljs-regexp">//</span>默认值可以在声明枚举类型时进行更改。<br></code></pre></td></tr></table></figure>
+
+<h3 id="112-结构体"><a href="#112-结构体" class="headerlink" title="112-结构体"></a>112-结构体</h3><h4 id="结构体的定义与使用"><a href="#结构体的定义与使用" class="headerlink" title="结构体的定义与使用"></a><strong>结构体的定义与使用</strong></h4><figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs arduino"><span class="hljs-comment">//结构体的作⽤就是把某⼀类的变量进⾏整合，组成⼀个新的数据类型，相当于⼀个新的信息。</span><br><span class="hljs-comment">//⽐如学⽣信息（包含了 年龄，姓名、年级、学号）。</span><br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">StudentInfo</span><br>&#123;<br><span class="hljs-keyword">public</span> <span class="hljs-type">int</span> age; <span class="hljs-comment">//public是访问权限，目前默认使用public。</span><br><span class="hljs-keyword">public</span> <span class="hljs-type">String</span> name;<br><span class="hljs-keyword">public</span> <span class="hljs-type">int</span> grade;<br><span class="hljs-keyword">public</span> <span class="hljs-type">String</span> studyID; <br>&#125;<br><span class="hljs-comment">//只是规定学生信息包含4个信息与信息的数据类型。</span><br>StudentInfo xiaoming; <span class="hljs-comment">//创建学生小明。</span><br>xiaoming.age = <span class="hljs-number">12</span>; <span class="hljs-comment">//给小明的年龄赋值。</span><br>xiaoming.name = <span class="hljs-string">&quot;⼩明&quot;</span>;<br><span class="hljs-comment">//相当于把所有信息汇总到了小明这个变量里面。</span><br>studentinfo[] studens = <span class="hljs-keyword">new</span> studentinfo[<span class="hljs-number">10</span>]; <span class="hljs-comment">//也可以创建结构体类型的数组方便进一步惯管理。</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="113-结构体函数"><a href="#113-结构体函数" class="headerlink" title="113-结构体函数"></a>113-结构体函数</h3><h4 id="结构体函数"><a href="#结构体函数" class="headerlink" title="结构体函数"></a><strong>结构体函数</strong></h4><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs csharp">在结构体中定义函数，实现得到名字<br><span class="hljs-keyword">struct</span> CustomerName<br>&#123;<br><span class="hljs-keyword">public</span> <span class="hljs-built_in">string</span> firstName;<br><span class="hljs-keyword">public</span> <span class="hljs-built_in">string</span> lastName;<br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-built_in">string</span> <span class="hljs-title">GetName</span>()</span><br>&#123;<br><span class="hljs-keyword">return</span> firstName+<span class="hljs-string">&quot; &quot;</span>+lastName;<br>&#125;<br>&#125;<br><span class="hljs-comment">//结构体中不但可以定义属性，也可以定义函数。</span><br><span class="hljs-comment">//当我们在结构体中定义⼀个函数的时候，这个函数就可以通过结构体声明的变量来调⽤，</span><br><span class="hljs-comment">//这个函数可以带有参数，那么调⽤的时候必须传递参数，</span><br><span class="hljs-comment">//这个函数，可以使⽤结构体中的属性。</span><br>customername xiaoming; <span class="hljs-comment">//声明一个小明结构体</span><br>console.writeline(xiaoming.Getname()); <span class="hljs-comment">//通过结构体.函数的语法调用在结构体中声明的函数。</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="115-什么是委托"><a href="#115-什么是委托" class="headerlink" title="115-什么是委托"></a>115-什么是委托</h3><h4 id="委托类型变量"><a href="#委托类型变量" class="headerlink" title="委托类型变量"></a><strong>委托类型变量</strong></h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs java">delegate <span class="hljs-type">double</span> <span class="hljs-title function_">MyDelegate</span><span class="hljs-params">(<span class="hljs-type">double</span> param1,<span class="hljs-type">double</span> param2)</span>; <span class="hljs-comment">//声明一个叫mydelegate的委托。</span><br><span class="hljs-keyword">static</span> <span class="hljs-type">double</span> <span class="hljs-title function_">Multiply</span><span class="hljs-params">(<span class="hljs-type">double</span> param1,<span class="hljs-type">double</span> param2)</span><br>&#123;<br><span class="hljs-keyword">return</span> param1*param2; <span class="hljs-comment">//声明一个作用是两个数相乘的函数。</span><br>&#125;<br><span class="hljs-keyword">static</span> <span class="hljs-type">double</span> <span class="hljs-title function_">Divide</span><span class="hljs-params">(<span class="hljs-type">double</span> param1,<span class="hljs-type">double</span> param2)</span><br>&#123;<br><span class="hljs-keyword">return</span> param1/param2; <span class="hljs-comment">//声明一个作用是两个数相除的函数。</span><br>&#125;<br><span class="hljs-type">double</span> <span class="hljs-variable">param1</span> <span class="hljs-operator">=</span> <span class="hljs-number">34</span>; <br><span class="hljs-type">double</span> <span class="hljs-variable">param2</span> <span class="hljs-operator">=</span><span class="hljs-number">2</span>;<br>MyDelegate de; <span class="hljs-comment">//正式声明一个叫de的委托变量。</span><br>de = Multiply; <span class="hljs-comment">//让de成为乘法函数。</span><br>de(param1,param2);<br>de = Divide; <span class="hljs-comment">//再让de成为除法函数。</span><br>de(param1,param2);<br><span class="hljs-comment">//委托是⼀个函数类型，可以把⼀个函数赋值给委托类型。</span><br><span class="hljs-comment">//定义委托的时候，语法类似于函数，需要声明返回值和参数类型，但是没有函数体。</span><br><span class="hljs-comment">//只能把委托赋值为参数和返回值均⼀样的函数。</span><br></code></pre></td></tr></table></figure>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%AC%94%E8%AE%B0/" class="category-chain-item">笔记</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E7%BC%96%E7%A8%8B/">#编程</a>
+      
+        <a href="/tags/C/">#C#</a>
+      
+        <a href="/tags/Unity/">#Unity</a>
+      
+    </div>
+  
+</div>
+
+
+              
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/12/13/%E7%AC%94%E8%AE%B0/C-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" title="C#学习笔记-面向对象">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">C#学习笔记-面向对象</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/11/30/%E6%9D%82%E8%B0%88/%E7%BB%93%E6%9D%9F%E4%B8%8E%E6%96%B0%E7%9A%84%E5%BC%80%E5%A7%8B/" title="结束，与新的开始">
+                        <span class="hidden-mobile">结束，与新的开始</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> & Eureka & <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
